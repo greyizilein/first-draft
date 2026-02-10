@@ -129,3 +129,46 @@ body {
   margin: 0 auto 2rem;
   opacity: 0.9;
 }
+
+/* ---------- MOBILE OPTIMISATION ---------- */
+@media (max-width: 768px) {
+
+  .hero-wrapper {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .hero-card {
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .hero-card h1 {
+    font-size: 2.75rem;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .features {
+    padding-bottom: 2.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.6rem;
+  }
+}
