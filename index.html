@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>First Draft — Academic Prompt Systems</title>
 
-  <!-- Inter font -->
+  <!-- Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,11 +15,11 @@
 
   <style>
     :root {
-      --black: #0b0b0b;
-      --white: #ffffff;
-      --grey-1: #f5f5f5;
-      --grey-2: #e6e6e6;
-      --grey-3: #9a9a9a;
+      --soft-sage: #ACC8A2;
+      --deep-olive: #1A2517;
+      --ink-black: #0E0E0E;
+      --off-white: #F8F9F7;
+      --muted: #6F756C;
     }
 
     * {
@@ -29,8 +29,8 @@
     body {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
-      color: var(--black);
-      background: var(--white);
+      background: var(--soft-sage);
+      color: var(--ink-black);
       line-height: 1.6;
     }
 
@@ -44,7 +44,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 24px 32px;
-      border-bottom: 1px solid var(--grey-2);
+      background: var(--soft-sage);
     }
 
     header .logo {
@@ -69,14 +69,14 @@
       font-size: 48px;
       font-weight: 600;
       letter-spacing: -0.03em;
-      max-width: 700px;
+      max-width: 720px;
       margin-bottom: 24px;
     }
 
     .hero p {
       font-size: 18px;
-      color: var(--grey-3);
-      max-width: 620px;
+      max-width: 640px;
+      color: var(--deep-olive);
     }
 
     .cta {
@@ -85,9 +85,10 @@
 
     .cta a {
       display: inline-block;
-      padding: 14px 28px;
-      border: 1px solid var(--black);
+      padding: 14px 30px;
       border-radius: 999px;
+      background: var(--ink-black);
+      color: var(--off-white);
       font-size: 14px;
       font-weight: 500;
     }
@@ -101,8 +102,8 @@
 
     .block-text {
       font-size: 16px;
-      color: var(--grey-3);
-      max-width: 700px;
+      max-width: 720px;
+      color: var(--deep-olive);
     }
 
     .cards {
@@ -113,9 +114,9 @@
     }
 
     .card {
-      border: 1px solid var(--grey-2);
-      border-radius: 16px;
-      padding: 32px;
+      background: var(--off-white);
+      border-radius: 20px;
+      padding: 36px;
     }
 
     .card h3 {
@@ -126,13 +127,18 @@
 
     .card p {
       font-size: 14px;
-      color: var(--grey-3);
+      color: var(--muted);
     }
 
     .full-width {
-      background: var(--grey-1);
+      background: var(--deep-olive);
+      color: var(--off-white);
       max-width: none;
       padding: 96px 32px;
+    }
+
+    .full-width .block-text {
+      color: #D9DFD4;
     }
 
     .center {
@@ -140,8 +146,8 @@
     }
 
     footer {
-      background: var(--black);
-      color: var(--white);
+      background: var(--ink-black);
+      color: var(--off-white);
       padding: 96px 32px 64px;
     }
 
@@ -162,7 +168,7 @@
     footer a {
       display: block;
       font-size: 14px;
-      color: #bfbfbf;
+      color: #C7CCC3;
       margin-bottom: 8px;
     }
 
@@ -174,14 +180,14 @@
 
     .contact-icons a {
       font-size: 20px;
-      color: var(--white);
+      color: var(--off-white);
     }
 
     .footer-bottom {
       max-width: 1100px;
       margin: 64px auto 0;
       font-size: 12px;
-      color: #888;
+      color: #8E948B;
       text-align: center;
     }
   </style>
@@ -194,7 +200,7 @@
   <nav>
     <a href="#">How it works</a>
     <a href="#">Use cases</a>
-    <a href="#">Contact</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -212,50 +218,49 @@
 <section>
   <h2 class="block-title">What First Draft provides</h2>
   <p class="block-text">
-    First Draft creates instruction systems for academic writing across
-    disciplines, levels, and institutions. Each prompt is structured to guide
-    an AI with precision while keeping authorship fully in human hands.
+    Instruction systems for academic writing across disciplines, levels,
+    and institutions — designed to preserve authorship while removing ambiguity.
   </p>
 
   <div class="cards">
     <div class="card">
       <h3>Executable prompts</h3>
-      <p>Every output is ready to run in any AI system without modification.</p>
+      <p>Every output is ready to run in any AI environment.</p>
     </div>
     <div class="card">
-      <h3>Chapter-aware structure</h3>
-      <p>Prompts are designed around real academic sections, not generic tasks.</p>
+      <h3>Chapter-aware logic</h3>
+      <p>Prompts mirror real academic structures and expectations.</p>
     </div>
     <div class="card">
       <h3>Discipline-agnostic</h3>
-      <p>Built for humanities, sciences, business, engineering, and more.</p>
+      <p>Applicable across humanities, sciences, business, and research.</p>
     </div>
   </div>
 </section>
 
 <section class="full-width center">
-  <h2 class="block-title">Designed for academic integrity</h2>
+  <h2 class="block-title">Built for academic integrity</h2>
   <p class="block-text" style="margin: 0 auto;">
-    First Draft does not generate submissions. It generates systems that
-    instruct writing responsibly, transparently, and with academic intent.
+    First Draft does not generate submissions. It generates systems that guide
+    responsible academic writing with clarity and intent.
   </p>
 </section>
 
 <section>
-  <h2 class="block-title">Who uses First Draft</h2>
+  <h2 class="block-title">Who this is for</h2>
 
   <div class="cards">
     <div class="card">
       <h3>Postgraduate students</h3>
-      <p>Clarify structure and expectations without outsourcing authorship.</p>
+      <p>Clear structure without outsourcing authorship.</p>
     </div>
     <div class="card">
       <h3>Doctoral researchers</h3>
-      <p>Control scope, depth, and chapter logic across large projects.</p>
+      <p>Controlled scope and depth across complex projects.</p>
     </div>
     <div class="card">
       <h3>Educators & supervisors</h3>
-      <p>Create consistent, high-quality guidance for students and teams.</p>
+      <p>Consistent, high-quality academic guidance.</p>
     </div>
   </div>
 </section>
@@ -263,8 +268,8 @@
 <section class="full-width center">
   <h2 class="block-title">Custom systems available</h2>
   <p class="block-text" style="margin: 0 auto;">
-    Custom prompt frameworks can be built for specific institutions,
-    disciplines, marking rubrics, or research programmes.
+    Bespoke prompt frameworks can be built for institutions, marking rubrics,
+    or research programmes.
   </p>
   <div class="cta">
     <a href="#contact">Request a custom build</a>
