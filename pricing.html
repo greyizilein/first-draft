@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing — First Draft</title>
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --sage:#ACC8A2;
+      --olive:#1A2517;
+      --black:#0E0E0E;
+      --white:#FFFFFF;
+      --muted:#6F756C;
+      --paper:#F8F9F7;
+      --line: rgba(26,37,23,.18);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      background:var(--sage);
+      color:var(--black);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+
+    header{
+      padding:24px 32px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    header .logo{font-weight:600;font-size:18px}
+    header nav a{margin-left:24px;font-size:14px}
+
+    section{
+      padding:96px 32px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    h1{
+      font-size:48px;
+      font-weight:600;
+      letter-spacing:-.03em;
+      max-width:820px;
+      margin:0 0 24px 0;
+    }
+    h2{
+      font-size:32px;
+      font-weight:600;
+      letter-spacing:-.02em;
+      margin:0 0 32px 0;
+    }
+    h3{
+      font-size:18px;
+      font-weight:600;
+      margin:0 0 8px 0;
+    }
+    p{
+      margin:0;
+      font-size:16px;
+      max-width:760px;
+      color:var(--olive);
+    }
+
+    /* Editorial stack */
+    .stack{
+      display:flex;
+      flex-direction:column;
+      gap:44px;
+      margin-top:56px;
+    }
+    .stack-item{
+      border-left:2px solid var(--olive);
+      padding-left:24px;
+    }
+    .stack-item p{font-size:15px;color:var(--olive)}
+
+    /* Pricing shell */
+    .pricing-grid{
+      margin-top:56px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    .panel{
+      background:var(--paper);
+      border-radius:18px;
+      padding:32px;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .panel .sub{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:14px;
+      max-width:none;
+    }
+
+    .form{
+      display:grid;
+      gap:16px;
+      margin-top:18px;
+    }
+    label{
+      font-size:13px;
+      font-weight:500;
+      color:rgba(26,37,23,.9);
+      display:block;
+      margin-bottom:6px;
+    }
+    select,input[type="number"]{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.65);
+      outline:none;
+      font-size:14px;
+    }
+    select:focus,input:focus{
+      border-color:rgba(26,37,23,.55);
+      box-shadow: 0 0 0 3px rgba(26,37,23,.12);
+    }
+
+    .checks{
+      display:grid;
+      gap:10px;
+      margin-top:8px;
+    }
+    .check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(172,200,162,.25);
+      border:1px solid rgba(26,37,23,.10);
+    }
+    .check input{margin-top:3px}
+    .check span{
+      display:block;
+      font-size:14px;
+      color:rgba(26,37,23,.92);
+    }
+    .check small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .estimate{
+      display:grid;
+      gap:12px;
+      padding:18px;
+      border-radius:16px;
+      border:1px solid rgba(26,37,23,.18);
+      background:rgba(255,255,255,.75);
+      margin-top:18px;
+    }
+    .price-row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:baseline;
+      flex-wrap:wrap;
+    }
+    .price{
+      font-size:28px;
+      font-weight:650;
+      letter-spacing:-.02em;
+      color:var(--black);
+    }
+    .range{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .breakdown{
+      border-top:1px solid rgba(26,37,23,.12);
+      padding-top:12px;
+      display:grid;
+      gap:6px;
+      font-size:13px;
+      color:rgba(26,37,23,.92);
+    }
+    .breakdown div{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .note{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+      line-height:1.5;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:var(--black);
+      color:var(--white);
+      font-size:13px;
+      font-weight:500;
+      border:none;
+      cursor:pointer;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.18)}
+    .btn.ghost{
+      background:transparent;
+      color:var(--black);
+      border:1px solid rgba(0,0,0,.20);
+      box-shadow:none;
+    }
+    .btn.ghost:hover{box-shadow:none; transform:translateY(-1px)}
+    .icon-links{
+      display:flex;
+      gap:14px;
+      margin-top:10px;
+      font-size:18px;
+    }
+    .icon-links a{
+      width:42px;height:42px;
+      border-radius:999px;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,.35);
+      border:1px solid rgba(0,0,0,.10);
+    }
+
+    .dark{
+      background:var(--olive);
+      color:var(--white);
+      max-width:none;
+    }
+    .dark p{color:#D9DFD4}
+
+    footer{
+      background:var(--black);
+      color:var(--white);
+      padding:96px 32px 64px;
+    }
+    .footer-grid{
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:48px;
+    }
+    footer h4{font-size:14px;font-weight:600;margin:0 0 16px 0}
+    footer a{display:block;font-size:14px;color:#C7CCC3;margin-bottom:8px}
+    .contact-icons{display:flex;gap:16px;margin-top:16px;font-size:20px}
+    .footer-bottom{
+      max-width:1100px;
+      margin:64px auto 0;
+      font-size:12px;
+      color:#8E948B;
+      text-align:center;
+    }
+
+    /* Animations */
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 900px){
+      .pricing-grid{grid-template-columns:1fr}
+      h1{font-size:40px}
+      h2{font-size:28px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="reveal">
+  <div class="logo">First Draft</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="use-cases.html">Use cases</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="reveal">
+  <h1>Pricing (₦)</h1>
+  <p>
+    Pricing is based on complexity, scope, and turnaround.
+    You are paying for engineered prompts (instruction systems), not written submissions.
+  </p>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Fair by scope</h3>
+      <p>Single sections cost less than full dissertation systems. Multi-chapter systems are priced as reusable infrastructure.</p>
+    </div>
+    <div class="stack-item">
+      <h3>Fair by level</h3>
+      <p>Higher levels require more rigorous instruction architecture (depth control, synthesis control, and tighter constraints).</p>
+    </div>
+    <div class="stack-item">
+      <h3>Fair by speed</h3>
+      <p>Urgent builds cost more because they compress design + testing time.</p>
+    </div>
+  </div>
+
+  <div class="pricing-grid">
+    <!-- Estimator -->
+    <div class="panel reveal">
+      <h2>Estimate your build</h2>
+      <p class="sub">This produces a price range. Final pricing depends on rubric complexity and the exact deliverables.</p>
+
+      <form class="form" id="pricingForm">
+        <div>
+          <label for="scope">Scope</label>
+          <select id="scope">
+            <option value="section">Single section prompt system</option>
+            <option value="chapter">Single chapter prompt system</option>
+            <option value="pack3">3-chapter prompt pack</option>
+            <option value="dissertation5" selected>Full dissertation system (Ch. 1–5)</option>
+            <option value="thesis7">Full thesis system (Ch. 1–7)</option>
+            <option value="institution">Institution / educator starter pack</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="level">Academic level</label>
+          <select id="level">
+            <option value="assignment">Assignment / coursework</option>
+            <option value="ug">Undergraduate</option>
+            <option value="masters" selected>Master’s</option>
+            <option value="phd">PhD</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="turnaround">Turnaround</label>
+          <select id="turnaround">
+            <option value="standard" selected>Standard (4–7 days)</option>
+            <option value="72h">Priority (72 hours)</option>
+            <option value="48h">Rush (48 hours)</option>
+            <option value="24h">Emergency (24 hours)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="chapters">If multi-chapter: number of chapters</label>
+          <input id="chapters" type="number" min="1" max="12" value="5" />
+        </div>
+
+        <div class="checks">
+          <div class="check">
+            <input id="rubric" type="checkbox" />
+            <div>
+              <span>Rubric / marking-guide alignment</span>
+              <small>We explicitly encode your rubric into the instruction system.</small>
+            </div>
+          </div>
+
+          <div class="check">
+            <input id="citation" type="checkbox" />
+            <div>
+              <span>Citation style enforcement</span>
+              <small>APA / Harvard / Chicago / IEEE etc — instruction-level control.</small>
+            </div>
+          </div>
+
+          <div class="check">
+            <input id="workflow" type="checkbox" />
+            <div>
+              <span>Workflow pack</span>
+              <small>How to run, gate, revise, and reuse prompts (step-by-step usage guide).</small>
+            </div>
+          </div>
+
+          <div class="check">
+            <input id="extraRev" type="checkbox" />
+            <div>
+              <span>Extra revision round</span>
+              <small>One revision is included by default; this adds one more.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="estimate" aria-live="polite">
+          <div class="price-row">
+            <div>
+              <div class="range" id="rangeLabel">Estimated range</div>
+              <div class="price" id="priceMain">₦—</div>
+            </div>
+            <div class="range" id="priceRange">—</div>
+          </div>
+
+          <div class="breakdown" id="breakdown"></div>
+
+          <div class="note">
+            Notes: This is pricing for engineered prompts only. It does not include writing, paraphrasing, or completing submissions.
+            You keep authorship and control.
+          </div>
+
+          <div class="cta-row">
+            <a class="btn" id="ctaWhatsApp" href="#" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a class="btn ghost" id="ctaEmail" href="mailto:?subject=First%20Draft%20—%20Prompt%20System%20Request">
+              <i class="fa-solid fa-envelope"></i> Email
+            </a>
+            <a class="btn ghost" id="ctaCall" href="tel:">
+              <i class="fa-solid fa-phone"></i> Call
+            </a>
+          </div>
+
+          <div class="icon-links">
+            <a href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="mailto:" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Logic explainer -->
+    <div class="panel reveal">
+      <h2>How pricing is decided</h2>
+      <p class="sub">Transparent logic. No “mystery pricing”.</p>
+
+      <div class="stack" style="margin-top:32px; gap:36px;">
+        <div class="stack-item">
+          <h3>Base scope rate</h3>
+          <p>Section <→ Chapter <→ Packs <→ Full systems. Full systems include chapter-by-chapter instruction architecture and gating.</p>
+        </div>
+        <div class="stack-item">
+          <h3>Complexity multiplier</h3>
+          <p>Higher levels and complex rubrics require stronger structure control, evaluation constraints, and more testing.</p>
+        </div>
+        <div class="stack-item">
+          <h3>Add-ons</h3>
+          <p>Rubric alignment, citation enforcement, and workflow packs add value by improving execution accuracy and repeatability.</p>
+        </div>
+      </div>
+
+      <div class="note" style="margin-top:18px;">
+        For institutional use: pricing depends on cohort size, consistency requirements, and governance constraints.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>Why this is cheaper than “paying for the work”</h2>
+  <p>
+    Outsourced writing is a recurring expense and increases integrity risk. Engineered prompts are reusable infrastructure:
+    you can apply the system repeatedly, adapt it, and improve it.
+  </p>
+</section>
+
+<footer id="contact" class="reveal">
+  <div class="footer-grid">
+    <div>
+      <h4>First Draft</h4>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="use-cases.html">Use cases</a>
+      <a href="prompt-preview.html">Prompt preview</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:">Email</a>
+      <a href="tel:">Call</a>
+      <div class="contact-icons">
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:"><i class="fa-solid fa-envelope"></i></a>
+        <a href="tel:"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 First Draft. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Pricing logic
+  const NGN = new Intl.NumberFormat('en-NG', { style:'currency', currency:'NGN', maximumFractionDigits:0 });
+
+  const baseRates = {
+    section: 12000,
+    chapter: 20000,
+    pack3: 45000,
+    dissertation5: 75000,
+    thesis7: 105000,
+    institution: 180000
+  };
+
+  const levelMult = {
+    assignment: 1.00,
+    ug: 1.20,
+    masters: 1.50,
+    phd: 2.00
+  };
+
+  const speedMult = {
+    standard: 1.00,
+    "72h": 1.25,
+    "48h": 1.40,
+    "24h": 1.65
+  };
+
+  const addOns = {
+    rubric: 10000,
+    citation: 5000,
+    workflow: 12000,
+    extraRev: 7000
+  };
+
+  const els = {
+    scope: document.getElementById('scope'),
+    level: document.getElementById('level'),
+    turnaround: document.getElementById('turnaround'),
+    chapters: document.getElementById('chapters'),
+    rubric: document.getElementById('rubric'),
+    citation: document.getElementById('citation'),
+    workflow: document.getElementById('workflow'),
+    extraRev: document.getElementById('extraRev'),
+    priceMain: document.getElementById('priceMain'),
+    priceRange: document.getElementById('priceRange'),
+    breakdown: document.getElementById('breakdown'),
+    ctaWhatsApp: document.getElementById('ctaWhatsApp'),
+    ctaEmail: document.getElementById('ctaEmail'),
+    ctaCall: document.getElementById('ctaCall')
+  };
+
+  function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+  function compute() {
+    const scope = els.scope.value;
+    const level = els.level.value;
+    const speed = els.turnaround.value;
+
+    let base = baseRates[scope];
+
+    // If multi-chapter selected, allow scaling when chapters deviate from default
+    const chapters = clamp(parseInt(els.chapters.value || "1", 10), 1, 12);
+    const isMulti = (scope === 'pack3' || scope === 'dissertation5' || scope === 'thesis7' || scope === 'institution');
+
+    // Scale base for multi if user changes chapter count meaningfully
+    // (keeps logic fair across varying works)
+    if (isMulti) {
+      const defaultCh =
+        scope === 'pack3' ? 3 :
+        scope === 'dissertation5' ? 5 :
+        scope === 'thesis7' ? 7 :
+        6; // institution starter typical baseline
+      const perChapter = base / defaultCh;
+      base = Math.round(perChapter * chapters);
+    }
+
+    const lm = levelMult[level];
+    const sm = speedMult[speed];
+
+    let addonsTotal = 0;
+    const addonItems = [];
+    Object.keys(addOns).forEach(k => {
+      if (els[k].checked) {
+        addonsTotal += addOns[k];
+        addonItems.push([k, addOns[k]]);
+      }
+    });
+
+    const subtotal = Math.round(base * lm * sm + addonsTotal);
+
+    // Range ±10%
+    const low = Math.round(subtotal * 0.90);
+    const high = Math.round(subtotal * 1.10);
+
+    els.priceMain.textContent = NGN.format(subtotal);
+    els.priceRange.textContent = `Range: ${NGN.format(low)} – ${NGN.format(high)}`;
+
+    // Breakdown
+    const lines = [];
+    lines.push(["Base scope", NGN.format(Math.round(base))]);
+    lines.push(["Level multiplier", `${lm.toFixed(2)}×`]);
+    lines.push(["Speed multiplier", `${sm.toFixed(2)}×`]);
+    if (isMulti) lines.push(["Chapters", `${chapters}`]);
+    if (addonsTotal > 0) lines.push(["Add-ons", NGN.format(addonsTotal)]);
+    lines.push(["Estimated total", NGN.format(subtotal)]);
+
+    els.breakdown.innerHTML = lines.map(([a,b]) => `<div><span>${a}</span><span>${b}</span></div>`).join("");
+
+    // Build contact links (you will replace placeholders)
+    const message =
+      `Hello First Draft,%0A%0AI want a prompt system.%0A%0A` +
+      `Scope: ${encodeURIComponent(els.scope.options[els.scope.selectedIndex].text)}%0A` +
+      `Level: ${encodeURIComponent(els.level.options[els.level.selectedIndex].text)}%0A` +
+      `Turnaround: ${encodeURIComponent(els.turnaround.options[els.turnaround.selectedIndex].text)}%0A` +
+      `Chapters: ${chapters}%0A` +
+      `Add-ons: ${encodeURIComponent(addonItems.length ? addonItems.map(x => x[0]).join(", ") : "None")}%0A` +
+      `Estimate: ${encodeURIComponent(NGN.format(subtotal))} (range ${encodeURIComponent(NGN.format(low))}–${encodeURIComponent(NGN.format(high))})%0A%0A` +
+      `Topic/brief:`;
+
+    // Replace THIS with your number in international format, e.g. 2348xxxxxxxxx (no +)
+    const whatsappNumber = "2340000000000";
+    els.ctaWhatsApp.href = `https://wa.me/${whatsappNumber}?text=${message}`;
+  }
+
+  ['change','input'].forEach(evt => {
+    document.getElementById('pricingForm').addEventListener(evt, compute);
+  });
+
+  // Initialize
+  compute();
+</script>
+
+</body>
+</html>
