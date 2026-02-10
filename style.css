@@ -1,11 +1,11 @@
-/* ---------- RESET ---------- */
+/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ---------- COLOURS ---------- */
+/* COLOURS */
 :root {
   --peach: #FFD2C2;
   --aqua: #789A99;
@@ -14,7 +14,7 @@
   --shadow: rgba(0, 0, 0, 0.08);
 }
 
-/* ---------- BASE ---------- */
+/* BASE */
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--peach);
@@ -22,7 +22,7 @@ body {
   line-height: 1.6;
 }
 
-/* ---------- TOP BAR ---------- */
+/* TOP BAR */
 .top-bar {
   padding: 1.25rem 1.5rem;
 }
@@ -34,7 +34,7 @@ body {
   font-weight: 600;
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 .hero-wrapper {
   display: flex;
   justify-content: center;
@@ -69,7 +69,7 @@ body {
   margin-bottom: 2.5rem;
 }
 
-/* ---------- CTA ---------- */
+/* CTA */
 .cta {
   display: inline-block;
   background: var(--dark);
@@ -86,11 +86,7 @@ body {
   opacity: 0.9;
 }
 
-.cta.dark {
-  background: var(--dark);
-}
-
-/* ---------- FEATURES ---------- */
+/* FEATURES */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -107,38 +103,79 @@ body {
   box-shadow: 0 12px 24px var(--shadow);
 }
 
-.feature-card h3 {
+/* FORM */
+.form-section {
+  background: var(--aqua);
+  padding: 4rem 1.5rem;
+}
+
+.form-card {
+  background: var(--light);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px var(--shadow);
+}
+
+.form-card h2 {
+  font-size: 2rem;
   margin-bottom: 0.75rem;
 }
 
-/* ---------- CTA SECTION ---------- */
-.cta-section {
-  background: var(--aqua);
-  color: var(--light);
+.form-intro {
+  margin-bottom: 2.5rem;
+  opacity: 0.85;
+}
+
+form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--aqua);
+}
+
+.cta.submit {
+  margin-top: 1.5rem;
+  width: 100%;
   text-align: center;
-  padding: 4rem 2rem;
 }
 
-.cta-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.cta-section p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  opacity: 0.9;
-}
-
-/* ---------- MOBILE OPTIMISATION ---------- */
+/* MOBILE */
 @media (max-width: 768px) {
-
-  .hero-wrapper {
-    padding: 1.5rem 1rem 2.5rem;
-  }
-
-  .hero-card {
-    padding: 2.5rem 1.5rem;
+  .hero-card,
+  .form-card {
+    padding: 2.25rem 1.5rem;
     border-radius: 20px;
   }
 
@@ -146,29 +183,8 @@ body {
     font-size: 2.75rem;
   }
 
-  .tagline {
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-  }
-
-  .features {
-    padding-bottom: 2.5rem;
-  }
-
-  .feature-card {
-    padding: 1.5rem;
-  }
-
   .cta {
     width: 100%;
     text-align: center;
-  }
-
-  .cta-section {
-    padding: 3rem 1.5rem;
-  }
-
-  .cta-section h2 {
-    font-size: 1.6rem;
   }
 }
