@@ -1,213 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>First Draft</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Draft — Academic Prompt Systems</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-<style>
-:root{
-  --sage:#ACC8A2;
-  --olive:#1A2517;
-  --black:#0E0E0E;
-  --white:#F8F9F7;
-  --muted:#6F756C;
-}
+  <style>
+    :root {
+      --sage: #ACC8A2;
+      --olive: #1A2517;
+      --black: #0E0E0E;
+      --white: #FFFFFF;
+      --muted: #6F756C;
+    }
 
-*{box-sizing:border-box}
+    * { box-sizing: border-box; }
 
-body{
-  margin:0;
-  font-family:Inter,system-ui,sans-serif;
-  background:var(--sage);
-  color:var(--black);
-  line-height:1.6;
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
 
-a{text-decoration:none;color:inherit}
+    header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 32px;
-}
+    header .logo {
+      font-weight: 600;
+      font-size: 18px;
+    }
 
-.logo{
-  font-weight:600;
-  font-size:18px;
-  letter-spacing:-.02em;
-}
+    header nav a {
+      margin-left: 24px;
+      font-size: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
 
-nav{
-  display:flex;
-  gap:24px;
-  font-size:14px;
-}
+    section {
+      padding: 96px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-section{
-  max-width:1100px;
-  margin:0 auto;
-  padding:96px 32px;
-}
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
 
-.hero h1{
-  font-size:52px;
-  font-weight:600;
-  letter-spacing:-.03em;
-  max-width:720px;
-  margin-bottom:24px;
-}
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 48px;
+    }
 
-.hero p{
-  max-width:640px;
-  font-size:18px;
-  color:var(--olive);
-}
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
 
-.cta{
-  margin-top:40px;
-}
+    p {
+      font-size: 16px;
+      max-width: 720px;
+      color: var(--olive);
+    }
 
-.cta a{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:14px 28px;
-  border-radius:999px;
-  background:var(--black);
-  color:var(--white);
-  font-size:14px;
-  font-weight:500;
-}
+    .cta {
+      margin-top: 40px;
+    }
 
-.block-title{
-  font-size:32px;
-  font-weight:600;
-  letter-spacing:-.02em;
-  margin-bottom:28px;
-}
+    .cta a {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
 
-.block-text{
-  max-width:720px;
-  font-size:16px;
-  color:var(--olive);
-}
+    /* STACKED EDITORIAL BLOCKS (REPLACES CARDS) */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      margin-top: 64px;
+    }
 
-/* SCRIBE-STYLE LEFT STACK */
-.left-stack{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-  margin-top:40px;
-}
+    .stack-item {
+      border-left: 2px solid var(--olive);
+      padding-left: 24px;
+    }
 
-.stack-card{
-  max-width:720px;
-  background:var(--olive);
-  border-radius:16px;
-  padding:26px 28px;
-}
+    .stack-item p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--olive);
+    }
 
-.stack-card.alt{
-  background:var(--black);
-}
+    /* DARK SECTION */
+    .dark {
+      background: var(--olive);
+      color: var(--white);
+      max-width: none;
+    }
 
-.stack-card h3{
-  font-size:15px;
-  font-weight:600;
-  margin-bottom:6px;
-  color:var(--white);
-}
+    .dark p {
+      color: #D9DFD4;
+    }
 
-.stack-card p{
-  font-size:14px;
-  color:#C7CCC3;
-}
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 96px 32px 64px;
+    }
 
-/* DARK FULL WIDTH */
-.full-dark{
-  background:var(--olive);
-  color:var(--white);
-  max-width:none;
-  padding:120px 32px;
-}
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 48px;
+    }
 
-.full-dark .inner{
-  max-width:1100px;
-  margin:0 auto;
-}
+    footer h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
 
-.full-dark h2{
-  font-size:42px;
-  font-weight:600;
-  letter-spacing:-.03em;
-  margin-bottom:24px;
-}
+    footer a {
+      display: block;
+      font-size: 14px;
+      color: #C7CCC3;
+      margin-bottom: 8px;
+      text-decoration: none;
+    }
 
-.full-dark p{
-  max-width:640px;
-  color:#C7CCC3;
-}
+    .contact-icons {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      font-size: 20px;
+    }
 
-/* FOOTER */
-footer{
-  background:var(--black);
-  color:var(--white);
-  padding:96px 32px 64px;
-}
-
-.footer-grid{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:48px;
-}
-
-footer h4{
-  font-size:14px;
-  font-weight:600;
-  margin-bottom:16px;
-}
-
-footer a{
-  display:block;
-  font-size:14px;
-  color:#C7CCC3;
-  margin-bottom:8px;
-}
-
-.contact-icons{
-  display:flex;
-  gap:16px;
-  margin-top:12px;
-}
-
-.contact-icons a{
-  font-size:18px;
-  color:var(--white);
-}
-
-.footer-bottom{
-  max-width:1100px;
-  margin:64px auto 0;
-  font-size:12px;
-  color:#8E948B;
-  text-align:center;
-}
-
-@media(max-width:768px){
-  .hero h1{font-size:40px}
-  .block-title{font-size:28px}
-}
-</style>
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 64px auto 0;
+      font-size: 12px;
+      color: #8E948B;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -221,78 +185,79 @@ footer a{
   </nav>
 </header>
 
-<section class="hero">
-  <h1>Executable prompt systems for academic work.</h1>
+<section>
+  <h1>Executable prompt systems for serious academic work.</h1>
   <p>
-    First Draft builds structured, examiner-aligned prompt systems that control
-    depth, logic, and academic standards without generating the work itself.
+    First Draft builds academic instruction systems that control structure,
+    depth, and standards — without generating submissions or replacing authorship.
   </p>
   <div class="cta">
     <a href="#contact">Contact for custom setup</a>
   </div>
 </section>
 
+<!-- REPLACED: WHAT FIRST DRAFT PROVIDES -->
 <section>
-  <h2 class="block-title">What First Draft provides</h2>
-  <p class="block-text">
-    Precision instruction systems that remove ambiguity while preserving authorship.
-  </p>
+  <h2>What First Draft provides</h2>
 
-  <div class="left-stack">
-    <div class="stack-card">
+  <div class="stack">
+    <div class="stack-item">
       <h3>Executable prompts</h3>
-      <p>Outputs are ready to run in any AI environment.</p>
+      <p>Every output is ready to run in any AI environment without modification.</p>
     </div>
-    <div class="stack-card">
+
+    <div class="stack-item">
       <h3>Chapter-aware logic</h3>
-      <p>Structures mirror real academic chapters and expectations.</p>
+      <p>Prompts mirror real academic structures and examiner expectations.</p>
     </div>
-    <div class="stack-card">
+
+    <div class="stack-item">
       <h3>Discipline-agnostic systems</h3>
       <p>Applicable across humanities, sciences, business, and research.</p>
     </div>
   </div>
 </section>
 
-<section class="full-dark">
-  <div class="inner">
-    <h2>Built for academic integrity</h2>
-    <p>
-      First Draft creates instructions, not submissions. The thinking,
-      synthesis, and authorship remain yours.
-    </p>
-  </div>
+<!-- DARK BREAK -->
+<section class="dark">
+  <h2>Built for academic integrity</h2>
+  <p>
+    First Draft does not write work.  
+    It provides systems that teach structure, enforce standards,
+    and keep authorship fully intact.
+  </p>
 </section>
 
+<!-- REPLACED: WHO THIS IS FOR -->
 <section>
-  <h2 class="block-title">Who this is for</h2>
+  <h2>Who this is for</h2>
 
-  <div class="left-stack">
-    <div class="stack-card alt">
+  <div class="stack">
+    <div class="stack-item">
       <h3>Postgraduate students</h3>
-      <p>Clear structure without outsourcing authorship.</p>
+      <p>Clear structure without outsourcing thinking or authorship.</p>
     </div>
-    <div class="stack-card alt">
+
+    <div class="stack-item">
       <h3>Doctoral researchers</h3>
-      <p>Controlled scope and depth across complex projects.</p>
+      <p>Controlled depth and scope across long-form research projects.</p>
     </div>
-    <div class="stack-card alt">
-      <h3>Educators and supervisors</h3>
-      <p>Consistent, examiner-level academic guidance.</p>
+
+    <div class="stack-item">
+      <h3>Educators & supervisors</h3>
+      <p>Consistent, high-quality academic guidance at scale.</p>
     </div>
   </div>
 </section>
 
-<section class="full-dark">
-  <div class="inner">
-    <h2>Custom systems available</h2>
-    <p>
-      Bespoke prompt frameworks can be built for institutions,
-      marking rubrics, or research programmes.
-    </p>
-    <div class="cta">
-      <a href="#contact">Request a custom build</a>
-    </div>
+<section class="dark">
+  <h2>Custom systems available</h2>
+  <p>
+    Bespoke prompt frameworks can be built for institutions,
+    marking rubrics, or research programmes.
+  </p>
+  <div class="cta">
+    <a href="#contact">Request a custom build</a>
   </div>
 </section>
 
