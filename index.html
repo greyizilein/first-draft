@@ -3,141 +3,427 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>First Draft</title>
+  <title>First Draft — Academic Prompt Studio</title>
+  <meta name="description" content="First Draft helps you generate executable academic prompts tailored to your level, discipline, scope, and topic." />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <header class="top-bar">
-    <div class="brand">
-      <span class="logo">✎</span>
-      <span class="name">First Draft</span>
-    </div>
+  <!-- Top bar -->
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="First Draft home">
+      <span class="brandMark">✎</span>
+      <span class="brandName">First Draft</span>
+    </a>
+
+    <button class="navToggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="#how">How it works</a>
+      <a href="#try">Try it</a>
+      <a href="#examples">Examples</a>
+      <a href="#usecases">Use cases</a>
+      <a class="navCta" href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <main class="hero-wrapper">
-    <section class="hero-card">
-      <p class="eyebrow">AI WRITING STUDIO</p>
-      <h1>First Draft</h1>
-      <p class="tagline">
-        Do your own work.<br>
-        Save thousands.
-      </p>
-      <a href="#form" class="cta">Start New Project →</a>
-    </section>
-  </main>
+  <!-- Hero (Scribe-like: dark + gradient + card preview) -->
+  <section class="hero">
+    <div class="heroBg"></div>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="feature-card">
-      <h3>Assignment to PhD</h3>
-      <p>Generate prompts tailored to your academic level, from coursework to doctoral research.</p>
+    <div class="container heroGrid">
+      <div class="heroCopy">
+        <div class="pill">Academic Prompt Studio</div>
+
+        <h1>Create precise academic prompts — not generic AI output.</h1>
+
+        <p class="subhead">
+          First Draft generates <strong>executable prompts</strong> tailored to your level, discipline, scope, and topic —
+          so any AI writer can produce structured academic work with clear expectations.
+        </p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="#try">Try a sample prompt</a>
+          <a class="btn ghost" href="#how">How it works</a>
+        </div>
+
+        <p class="fine">
+          First Draft does not write essays, dissertations, or papers. It outputs instructions only.
+        </p>
+      </div>
+
+      <div class="heroPreview" aria-hidden="true">
+        <div class="previewCard">
+          <div class="previewTop">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="previewTitle">Sample output preview</span>
+          </div>
+          <div class="previewBody">
+            <div class="previewLine strong">PROMPT: Literature Review (Sample)</div>
+            <div class="previewLine">Role: Senior academic supervisor + examiner.</div>
+            <div class="previewLine">Goal: Produce a critical, synthesis-led review…</div>
+            <div class="previewLine">Constraints: structure, depth, sources, citation style…</div>
+            <div class="previewLine">Stop: Pause after each section for approval…</div>
+          </div>
+        </div>
+
+        <div class="miniRow">
+          <div class="miniStat">
+            <div class="miniLabel">Output type</div>
+            <div class="miniValue">Executable prompts</div>
+          </div>
+          <div class="miniStat">
+            <div class="miniLabel">Scope</div>
+            <div class="miniValue">Single → full work</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <h3>Examiner-Level Detail</h3>
-      <p>Prompts structured to meet postgraduate and doctoral marking expectations.</p>
-    </div>
-    <div class="feature-card">
-      <h3>You Stay the Author</h3>
-      <p>First Draft generates instructions, not submissions. Your work remains your own.</p>
+  </section>
+
+  <!-- What it is -->
+  <section class="section">
+    <div class="container">
+      <div class="sectionHeader">
+        <h2>What First Draft does</h2>
+        <p>
+          Most tools generate text. First Draft generates <strong>instructions</strong>.
+          You stay in control of the writing process, while the AI follows a clear academic plan.
+        </p>
+      </div>
+
+      <div class="cards3">
+        <article class="card">
+          <h3>Executable</h3>
+          <p>
+            Outputs are ready-to-paste prompts that specify structure, depth, constraints, and stop points.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Academic-grade</h3>
+          <p>
+            Prompts scale by level (assignment → PhD) and adapt to discipline and methodology.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Customisable</h3>
+          <p>
+            Choose citation style, scope (single section or full work), and the chapter/section you need.
+          </p>
+        </article>
+      </div>
+
+      <div class="notice">
+        <strong>Academic integrity:</strong> This tool outputs prompts (instructions), not completed submissions.
+        You remain responsible for originality, accuracy, and referencing.
+      </div>
     </div>
   </section>
 
-  <!-- FORM -->
-  <section id="form" class="form-section">
-    <div class="form-card">
+  <!-- How it works (Scribe-like steps) -->
+  <section class="section alt" id="how">
+    <div class="container">
+      <div class="sectionHeader">
+        <h2>How it works</h2>
+        <p>Three steps: define → generate → use anywhere.</p>
+      </div>
 
-      <h2>Your project starts here</h2>
-      <p class="form-intro">
-        Fill in the details below to generate a precise, examiner-level academic prompt.
-      </p>
-
-      <form id="projectForm">
-
-        <div class="field">
-          <label>Academic Level</label>
-          <select required>
-            <option value="">Select level</option>
-            <option>Assignment</option>
-            <option>Undergraduate</option>
-            <option>Master’s</option>
-            <option>PhD</option>
-          </select>
+      <div class="steps">
+        <div class="step">
+          <div class="stepNum">1</div>
+          <div class="stepBody">
+            <h3>Describe your task</h3>
+            <p>Select level, work type, scope, discipline, and your topic (plus word count and citation style if needed).</p>
+          </div>
         </div>
 
-        <div class="field">
-          <label>Type of Work</label>
-          <select required>
-            <option value="">Select type</option>
-            <option>Essay</option>
-            <option>Report</option>
-            <option>Dissertation</option>
-            <option>Thesis</option>
-            <option>Proposal</option>
-          </select>
+        <div class="step">
+          <div class="stepNum">2</div>
+          <div class="stepBody">
+            <h3>Get a structured prompt</h3>
+            <p>Receive an advanced prompt that tells an AI writer what to do, how to structure it, and when to stop.</p>
+          </div>
         </div>
 
-        <div class="field">
-          <label>Section / Chapter</label>
-          <select required>
-            <option value="">Select section</option>
-            <option>Full work</option>
-            <option>Abstract</option>
-            <option>Introduction</option>
-            <option>Literature Review</option>
-            <option>Methodology</option>
-            <option>Analysis</option>
-            <option>Discussion</option>
-            <option>Conclusion</option>
-          </select>
+        <div class="step">
+          <div class="stepNum">3</div>
+          <div class="stepBody">
+            <h3>Use it anywhere</h3>
+            <p>Paste the prompt into your preferred AI tool. Review, revise, and guide the output section-by-section.</p>
+          </div>
         </div>
+      </div>
 
-        <div class="field">
-          <label>Discipline</label>
-          <input type="text" placeholder="e.g. Business, Education, Health" required>
+      <div class="callout">
+        <div>
+          <h3>Important</h3>
+          <p>First Draft generates prompts only. It does not generate your academic work.</p>
         </div>
-
-        <div class="field">
-          <label>Methodology</label>
-          <select>
-            <option>Theoretical</option>
-            <option>Quantitative</option>
-            <option>Qualitative</option>
-            <option>Mixed Methods</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Project Topic</label>
-          <textarea rows="3" placeholder="Enter your exact topic or title" required></textarea>
-        </div>
-
-        <div class="field">
-          <label>Target Word Count</label>
-          <input type="number" placeholder="e.g. 3000" required>
-        </div>
-
-        <div class="field">
-          <label>Output Style</label>
-          <select>
-            <option>Single complete prompt</option>
-            <option>Step-by-step (section gated)</option>
-          </select>
-        </div>
-
-        <button type="submit" class="cta submit">Generate Prompt →</button>
-
-      </form>
-<div id="output-wrapper" class="output hidden">
-  <h3>Your Generated Prompt</h3>
-  <textarea id="promptOutput" rows="18" readonly></textarea>
-  <button id="copyBtn" class="cta submit">Copy Prompt</button>
-</div>
+        <a class="btn primary" href="#try">Try it now</a>
+      </div>
     </div>
   </section>
+
+  <!-- Try it (Landing page form + output) -->
+  <section class="section" id="try">
+    <div class="container">
+      <div class="sectionHeader">
+        <h2>Try a sample prompt</h2>
+        <p>
+          Use the form to generate a <strong>sample</strong> academic prompt. This demonstrates structure and depth.
+          For fully tailored prompt systems, see the contact section.
+        </p>
+      </div>
+
+      <div class="formGrid">
+        <form class="formCard" id="projectForm">
+          <div class="field">
+            <label for="academicLevel">Academic level</label>
+            <select id="academicLevel" required>
+              <option value="">Select</option>
+              <option>Assignment</option>
+              <option>Undergraduate</option>
+              <option>Master’s</option>
+              <option>PhD</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="workType">Type of work</label>
+            <select id="workType" required>
+              <option value="">Select</option>
+              <option>Essay</option>
+              <option>Report</option>
+              <option>Dissertation</option>
+              <option>Thesis</option>
+              <option>Proposal</option>
+              <option>Literature Review (standalone)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="scope">Scope</label>
+            <select id="scope" required>
+              <option>Single section/chapter</option>
+              <option>Full work (Chapters 1–5)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="section">Section / chapter</label>
+            <select id="section" required>
+              <option>Introduction (Chapter 1)</option>
+              <option>Literature Review (Chapter 2)</option>
+              <option>Methodology (Chapter 3)</option>
+              <option>Analysis / Results (Chapter 4)</option>
+              <option>Discussion + Conclusion (Chapter 5)</option>
+              <option>Abstract</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="discipline">Discipline</label>
+            <input id="discipline" type="text" placeholder="e.g., Education, Business, Public Health" required />
+          </div>
+
+          <div class="field">
+            <label for="methodology">Methodology (if relevant)</label>
+            <select id="methodology">
+              <option>Theoretical / Desk-based</option>
+              <option>Quantitative</option>
+              <option>Qualitative</option>
+              <option>Mixed methods</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="topic">Topic / title</label>
+            <textarea id="topic" rows="3" placeholder="Enter your exact topic or research title" required></textarea>
+          </div>
+
+          <div class="field">
+            <label for="wordCount">Target word count</label>
+            <input id="wordCount" type="number" min="200" step="50" placeholder="e.g., 3000" required />
+          </div>
+
+          <div class="field">
+            <label for="citation">Citation style</label>
+            <select id="citation" required>
+              <option>APA</option>
+              <option>MLA</option>
+              <option>Chicago</option>
+              <option>Harvard</option>
+              <option>IEEE</option>
+              <option>Vancouver</option>
+              <option>Other / Institution-specific</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="constraints">Any constraints (optional)</label>
+            <input id="constraints" type="text" placeholder="e.g., UK English, include 2018–present sources, no first person" />
+          </div>
+
+          <button class="btn primary full" type="submit">Generate sample prompt</button>
+
+          <p class="fine">
+            Output is a prompt (instructions) only — not academic content.
+          </p>
+        </form>
+
+        <div class="outputCard">
+          <div class="outputHeader">
+            <h3>Generated prompt</h3>
+            <div class="outputActions">
+              <button class="btn small" id="copyBtn" type="button">Copy</button>
+              <button class="btn small" id="downloadBtn" type="button">Download</button>
+            </div>
+          </div>
+
+          <textarea id="promptOutput" rows="22" readonly placeholder="Your generated prompt will appear here..."></textarea>
+
+          <div class="fine muted">
+            Tip: Paste this prompt into your AI tool, then follow the “pause/continue” gates for section-by-section control.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples -->
+  <section class="section alt" id="examples">
+    <div class="container">
+      <div class="sectionHeader">
+        <h2>Testable samples</h2>
+        <p>
+          These are short demonstrations of how to use prompts effectively.
+          You can test them immediately with any AI writer.
+        </p>
+      </div>
+
+      <div class="examplesGrid">
+        <article class="example">
+          <h3>Sample A — Literature Review prompt (short)</h3>
+          <p class="muted">A compact “good” prompt that still enforces synthesis, scope, and citation rules.</p>
+          <pre class="pre" id="exA"></pre>
+          <div class="rowBtns">
+            <button class="btn small" data-copy="#exA">Copy sample</button>
+          </div>
+        </article>
+
+        <article class="example">
+          <h3>Sample B — Methodology prompt (short)</h3>
+          <p class="muted">A compact prompt that forces justification (not description) and links decisions to objectives.</p>
+          <pre class="pre" id="exB"></pre>
+          <div class="rowBtns">
+            <button class="btn small" data-copy="#exB">Copy sample</button>
+          </div>
+        </article>
+
+        <article class="example">
+          <h3>How to use a prompt (the right way)</h3>
+          <ol class="howList">
+            <li>Paste the prompt into your AI tool.</li>
+            <li>Ask it to produce <strong>only the first section</strong>.</li>
+            <li>Review for relevance, accuracy, and structure.</li>
+            <li>Tell it “Continue to the next section” when ready.</li>
+            <li>Replace or refine any instructions that don’t match your rubric.</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="section" id="usecases">
+    <div class="container">
+      <div class="sectionHeader">
+        <h2>Use cases</h2>
+        <p>Built for people who need structure, not guesswork.</p>
+      </div>
+
+      <div class="cards3">
+        <article class="card">
+          <h3>Assignments</h3>
+          <p>Turn a brief into a structured prompt that enforces argument, evidence, and marking criteria.</p>
+        </article>
+        <article class="card">
+          <h3>Dissertations & theses</h3>
+          <p>Generate chapter-specific prompts (1–5) that keep each chapter’s purpose distinct.</p>
+        </article>
+        <article class="card">
+          <h3>Professional research writing</h3>
+          <p>Create prompts for academic-style reports, evaluations, and evidence reviews.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact (service-based conversion) -->
+  <section class="section contact" id="contact">
+    <div class="container contactGrid">
+      <div class="contactCopy">
+        <h2>Want a custom prompt system?</h2>
+        <p>
+          If you want prompts tailored to your institution, rubric, research design, or a full dissertation workflow,
+          contact me. I will build a custom prompt pack and usage guide for your exact project.
+        </p>
+
+        <ul class="contactBullets">
+          <li>Institution/rubric alignment</li>
+          <li>Discipline-specific prompt packs</li>
+          <li>Chapter-by-chapter workflows</li>
+          <li>Editable prompt library for future projects</li>
+        </ul>
+
+        <div class="contactActions">
+          <a class="btn primary" href="mailto:your@email.com?subject=First%20Draft%20—%20Custom%20Prompt%20System">Email to order</a>
+          <a class="btn ghost" href="#try">Try samples again</a>
+        </div>
+
+        <p class="fine muted">
+          Replace <strong>your@email.com</strong> in the code with your real email address.
+        </p>
+      </div>
+
+      <div class="contactCard">
+        <h3>What to include in your message</h3>
+        <div class="contactFormNote">
+          <p><strong>Level:</strong> (e.g., Master’s / PhD)</p>
+          <p><strong>Work type:</strong> (dissertation, thesis, proposal)</p>
+          <p><strong>Discipline:</strong></p>
+          <p><strong>Topic:</strong></p>
+          <p><strong>Methodology:</strong></p>
+          <p><strong>Word count:</strong></p>
+          <p><strong>Citation style:</strong></p>
+          <p><strong>Rubric / brief:</strong> paste or attach</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footerGrid">
+      <div>
+        <div class="footerBrand"><span class="brandMark">✎</span> First Draft</div>
+        <div class="fine muted">Executable academic prompts. Not academic content.</div>
+      </div>
+
+      <div class="footerLinks">
+        <a href="#how">How it works</a>
+        <a href="#try">Try it</a>
+        <a href="#examples">Examples</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="fine muted right">
+        © <span id="year"></span> First Draft. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
-</html>
+            </html>
