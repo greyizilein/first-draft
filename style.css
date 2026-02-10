@@ -182,6 +182,28 @@ textarea:focus {
   .hero-card h1 {
     font-size: 2.75rem;
   }
+  /* ---------- OUTPUT ---------- */
+.output {
+  margin-top: 3rem;
+}
+
+.output h3 {
+  margin-bottom: 1rem;
+}
+
+.output textarea {
+  width: 100%;
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: 1px solid #ddd;
+}
+
+.hidden {
+  display: none;
+}
+
 
   .cta {
     width: 100%;
