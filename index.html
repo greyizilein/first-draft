@@ -1,218 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>First Draft — Academic Prompt Systems</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>First Draft — Academic Prompt Systems</title>
 
-  <!-- Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{
+  --sage:#ACC8A2;
+  --olive:#1A2517;
+  --black:#0E0E0E;
+  --white:#FFFFFF;
+  --muted:#6F756C;
+}
 
-  <style>
-    :root {
-      --sage: #ACC8A2;
-      --olive: #1A2517;
-      --black: #0E0E0E;
-      --white: #FFFFFF;
-      --muted: #6F756C;
-    }
+*{box-sizing:border-box}
 
-    * { box-sizing: border-box; }
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--sage);
+  color:var(--black);
+  line-height:1.6;
+  overflow-x:hidden;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--sage);
-      color: var(--black);
-      line-height: 1.6;
-    }
+/* HEADER */
+header{
+  padding:24px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+}
 
-    header {
-      padding: 24px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.logo{
+  font-weight:600;
+  font-size:18px;
+}
 
-    header .logo {
-      font-weight: 600;
-      font-size: 18px;
-    }
+/* MENU ICON */
+.menu-btn{
+  font-size:20px;
+  cursor:pointer;
+  z-index:1001;
+}
 
-    header nav a {
-      margin-left: 24px;
-      font-size: 14px;
-      text-decoration: none;
-      color: inherit;
-    }
+/* OVERLAY MENU */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(14,14,14,.96);
+  color:var(--white);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .4s ease;
+  z-index:1000;
+}
 
-    section {
-      padding: 96px 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+.menu-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
 
-    h1 {
-      font-size: 48px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      max-width: 760px;
-      margin-bottom: 24px;
-    }
+.menu-overlay a{
+  font-size:28px;
+  font-weight:500;
+  margin:14px 0;
+  text-decoration:none;
+  color:var(--white);
+  letter-spacing:-.02em;
+}
 
-    h2 {
-      font-size: 32px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 48px;
-    }
+.menu-close{
+  position:absolute;
+  top:28px;
+  right:32px;
+  font-size:22px;
+  cursor:pointer;
+}
 
-    h3 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
+/* SECTIONS */
+section{
+  padding:96px 32px;
+  max-width:1100px;
+  margin:0 auto;
+}
 
-    p {
-      font-size: 16px;
-      max-width: 720px;
-      color: var(--olive);
-    }
+h1{
+  font-size:48px;
+  font-weight:600;
+  letter-spacing:-.03em;
+  max-width:760px;
+  margin-bottom:24px;
+}
 
-    .cta {
-      margin-top: 40px;
-    }
+h2{
+  font-size:32px;
+  font-weight:600;
+  letter-spacing:-.02em;
+  margin-bottom:48px;
+}
 
-    .cta a {
-      display: inline-block;
-      padding: 14px 30px;
-      border-radius: 999px;
-      background: var(--black);
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
+h3{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:8px;
+}
 
-    .cta a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
-    }
+p{
+  font-size:16px;
+  max-width:720px;
+  color:var(--olive);
+}
 
-    /* STACKED EDITORIAL BLOCKS */
-    .stack {
-      display: flex;
-      flex-direction: column;
-      gap: 56px;
-      margin-top: 64px;
-    }
+/* CTA */
+.cta{
+  margin-top:40px;
+}
 
-    .stack-item {
-      border-left: 2px solid var(--olive);
-      padding-left: 24px;
-    }
+.cta a{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:999px;
+  background:var(--black);
+  color:var(--white);
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
 
-    .stack-item p {
-      margin: 0;
-      font-size: 15px;
-      color: var(--olive);
-    }
+.cta a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
 
-    /* DARK SECTIONS */
-    .dark {
-      background: var(--olive);
-      color: var(--white);
-      max-width: none;
-    }
+/* STACK */
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap:56px;
+  margin-top:64px;
+}
 
-    .dark p {
-      color: #D9DFD4;
-    }
+.stack-item{
+  border-left:2px solid var(--olive);
+  padding-left:24px;
+}
 
-    footer {
-      background: var(--black);
-      color: var(--white);
-      padding: 96px 32px 64px;
-    }
+.stack-item p{
+  margin:0;
+  font-size:15px;
+}
 
-    .footer-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 48px;
-    }
+/* DARK */
+.dark{
+  background:var(--olive);
+  color:var(--white);
+  max-width:none;
+}
 
-    footer h4 {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+.dark p{color:#D9DFD4}
 
-    footer a {
-      display: block;
-      font-size: 14px;
-      color: #C7CCC3;
-      margin-bottom: 8px;
-      text-decoration: none;
-    }
+/* FOOTER */
+footer{
+  background:var(--black);
+  color:var(--white);
+  padding:96px 32px 64px;
+}
 
-    .contact-icons {
-      display: flex;
-      gap: 16px;
-      margin-top: 16px;
-      font-size: 20px;
-    }
+.footer-grid{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:48px;
+}
 
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 64px auto 0;
-      font-size: 12px;
-      color: #8E948B;
-      text-align: center;
-    }
+footer h4{
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:16px;
+}
 
-    /* ===== ANIMATIONS ===== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
+footer a{
+  display:block;
+  font-size:14px;
+  color:#C7CCC3;
+  margin-bottom:8px;
+  text-decoration:none;
+}
 
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.contact-icons{
+  display:flex;
+  gap:16px;
+  margin-top:16px;
+  font-size:20px;
+}
 
-    .stack-item {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
+.footer-bottom{
+  max-width:1100px;
+  margin:64px auto 0;
+  font-size:12px;
+  color:#8E948B;
+  text-align:center;
+}
 
-    .stack-item.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.stack-item{
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+.stack-item.active{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
 </head>
 
 <body>
 
 <header class="reveal">
   <div class="logo">First Draft</div>
-  <nav>
-    <a href="#">How it works</a>
-    <a href="#">Use cases</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="menu-btn" onclick="openMenu()"><i class="fa-solid fa-bars"></i></div>
 </header>
+
+<div class="menu-overlay" id="menu">
+  <div class="menu-close" onclick="closeMenu()"><i class="fa-solid fa-xmark"></i></div>
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How it works</a>
+  <a href="prompt-preview.html">Prompt preview</a>
+  <a href="use-cases.html">Use cases</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
 <section class="reveal">
   <h1>Executable prompt systems for serious academic work.</h1>
@@ -221,46 +265,46 @@
     depth, and standards — without generating submissions or replacing authorship.
   </p>
   <div class="cta">
-    <a href="#contact">Contact for custom setup</a>
+    <a href="pricing.html">View pricing</a>
   </div>
 </section>
 
 <section class="reveal">
   <h2>What First Draft provides</h2>
   <div class="stack">
-    <div class="stack-item"> <h3>Executable prompts</h3><p>Every output is ready to run in any AI environment without modification.</p></div>
-    <div class="stack-item"> <h3>Chapter-aware logic</h3><p>Prompts mirror real academic structures and examiner expectations.</p></div>
-    <div class="stack-item"> <h3>Discipline-agnostic systems</h3><p>Applicable across humanities, sciences, business, and research.</p></div>
+    <div class="stack-item"><h3>Executable prompts</h3><p>Ready-to-run instruction systems.</p></div>
+    <div class="stack-item"><h3>Chapter-aware logic</h3><p>Built to match real academic structures.</p></div>
+    <div class="stack-item"><h3>Discipline-agnostic systems</h3><p>Usable across all academic fields.</p></div>
   </div>
 </section>
 
 <section class="dark reveal">
   <h2>Built for academic integrity</h2>
-  <p>First Draft does not write work. It provides systems that enforce standards while preserving authorship.</p>
+  <p>We design systems that guide thinking — not generate submissions.</p>
 </section>
 
 <section class="reveal">
   <h2>Who this is for</h2>
   <div class="stack">
-    <div class="stack-item"><h3>Postgraduate students</h3><p>Clear structure without outsourcing thinking or authorship.</p></div>
-    <div class="stack-item"><h3>Doctoral researchers</h3><p>Controlled depth and scope across long-form research projects.</p></div>
-    <div class="stack-item"><h3>Educators & supervisors</h3><p>Consistent, high-quality academic guidance at scale.</p></div>
+    <div class="stack-item"><h3>Postgraduate students</h3><p>Structure without outsourcing authorship.</p></div>
+    <div class="stack-item"><h3>Doctoral researchers</h3><p>Depth and scope control at scale.</p></div>
+    <div class="stack-item"><h3>Educators & supervisors</h3><p>Consistent academic guidance.</p></div>
   </div>
 </section>
 
 <section class="dark reveal">
   <h2>Custom systems available</h2>
-  <p>Bespoke prompt frameworks can be built for institutions, marking rubrics, or research programmes.</p>
-  <div class="cta"><a href="#contact">Request a custom build</a></div>
+  <p>Bespoke prompt frameworks for individuals and institutions.</p>
+  <div class="cta"><a href="use-cases.html">Explore use cases</a></div>
 </section>
 
 <footer id="contact" class="reveal">
   <div class="footer-grid">
     <div>
       <h4>First Draft</h4>
-      <a href="#">How it works</a>
-      <a href="#">Use cases</a>
-      <a href="#">Academic integrity</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="use-cases.html">Use cases</a>
+      <a href="pricing.html">Pricing</a>
     </div>
     <div>
       <h4>Contact</h4>
@@ -272,26 +316,19 @@
         <a href="#"><i class="fa-solid fa-phone"></i></a>
       </div>
     </div>
-    <div>
-      <h4>Legal</h4>
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
-    </div>
   </div>
   <div class="footer-bottom">© 2026 First Draft. All rights reserved.</div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.15 });
+function openMenu(){document.getElementById('menu').classList.add('active')}
+function closeMenu(){document.getElementById('menu').classList.remove('active')}
 
-  document.querySelectorAll('.reveal, .stack-item')
-    .forEach(el => observer.observe(el));
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})
+},{threshold:.15})
+
+document.querySelectorAll('.reveal,.stack-item').forEach(el=>observer.observe(el))
 </script>
 
 </body>
