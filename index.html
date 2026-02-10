@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- TOP BAR -->
   <header class="top-bar">
     <div class="brand">
       <span class="logo">✎</span>
@@ -15,60 +16,124 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <main class="hero-wrapper">
     <section class="hero-card">
       <p class="eyebrow">AI WRITING STUDIO</p>
-
       <h1>First Draft</h1>
-
       <p class="tagline">
         Do your own work.<br>
         Save thousands.
       </p>
-
-      <a href="#start" class="cta">
-        Start New Project →
-      </a>
+      <a href="#form" class="cta">Start New Project →</a>
     </section>
   </main>
 
+  <!-- FEATURES -->
   <section class="features">
     <div class="feature-card">
       <h3>Assignment to PhD</h3>
-      <p>
-        Generate prompts tailored to your academic level,
-        from short coursework to doctoral research.
-      </p>
+      <p>Generate prompts tailored to your academic level, from coursework to doctoral research.</p>
     </div>
-
     <div class="feature-card">
       <h3>Examiner-Level Detail</h3>
-      <p>
-        Prompts are structured to meet postgraduate and
-        doctoral marking expectations.
-      </p>
+      <p>Prompts structured to meet postgraduate and doctoral marking expectations.</p>
     </div>
-
     <div class="feature-card">
       <h3>You Stay the Author</h3>
-      <p>
-        First Draft creates instructions, not submissions.
-        Your work remains your own.
-      </p>
+      <p>First Draft generates instructions, not submissions. Your work remains your own.</p>
     </div>
   </section>
 
-  <section id="start" class="cta-section">
-    <h2>Your project starts here</h2>
-    <p>
-      Fill in your project details and receive a precise,
-      ready-to-use academic prompt.
-    </p>
+  <!-- FORM -->
+  <section id="form" class="form-section">
+    <div class="form-card">
 
-    <a href="#" class="cta dark">
-      Create Your Prompt →
-    </a>
+      <h2>Your project starts here</h2>
+      <p class="form-intro">
+        Fill in the details below to generate a precise, examiner-level academic prompt.
+      </p>
+
+      <form id="projectForm">
+
+        <div class="field">
+          <label>Academic Level</label>
+          <select required>
+            <option value="">Select level</option>
+            <option>Assignment</option>
+            <option>Undergraduate</option>
+            <option>Master’s</option>
+            <option>PhD</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Type of Work</label>
+          <select required>
+            <option value="">Select type</option>
+            <option>Essay</option>
+            <option>Report</option>
+            <option>Dissertation</option>
+            <option>Thesis</option>
+            <option>Proposal</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Section / Chapter</label>
+          <select required>
+            <option value="">Select section</option>
+            <option>Full work</option>
+            <option>Abstract</option>
+            <option>Introduction</option>
+            <option>Literature Review</option>
+            <option>Methodology</option>
+            <option>Analysis</option>
+            <option>Discussion</option>
+            <option>Conclusion</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Discipline</label>
+          <input type="text" placeholder="e.g. Business, Education, Health" required>
+        </div>
+
+        <div class="field">
+          <label>Methodology</label>
+          <select>
+            <option>Theoretical</option>
+            <option>Quantitative</option>
+            <option>Qualitative</option>
+            <option>Mixed Methods</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Project Topic</label>
+          <textarea rows="3" placeholder="Enter your exact topic or title" required></textarea>
+        </div>
+
+        <div class="field">
+          <label>Target Word Count</label>
+          <input type="number" placeholder="e.g. 3000" required>
+        </div>
+
+        <div class="field">
+          <label>Output Style</label>
+          <select>
+            <option>Single complete prompt</option>
+            <option>Step-by-step (section gated)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="cta submit">Generate Prompt →</button>
+
+      </form>
+
+    </div>
   </section>
 
+  <script src="script.js"></script>
 </body>
 </html>
