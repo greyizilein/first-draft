@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const form = document.getElementById("projectForm");
   const outputWrapper = document.getElementById("output-wrapper");
   const outputField = document.getElementById("promptOutput");
@@ -7,241 +8,131 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form) return;
 
-  /* -------------------------
-     VARIATION ENGINE
-  -------------------------- */
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
 
-  function variant(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
-
-  function shuffle(arr) {
-    return [...arr].sort(() => Math.random() - 0.5);
-  }
-
-  /* -------------------------
-     GLOBAL ACADEMIC RULES
-  -------------------------- */
-
-  function globalRules(data) {
+  function globalRules() {
     return `
-Humanise the content so it reads as written by a human academic.
-Use UK English only.
+Use UK English.
 Do not use first-person or contractions.
 Maintain a formal but natural academic tone.
 Move from descriptive discussion to critical evaluation.
-Synthesise literature rather than summarising it.
-Assume examiner-level scrutiny throughout.
-
-Citation rules:
-- Harvard referencing style
-- Use "and", not "&"
-- Cite all non-obvious claims
-- Do not fabricate sources
+Assume examiner-level scrutiny.
+Use Harvard referencing with "and" not "&".
+Cite all non-obvious claims.
 `;
   }
 
-  /* -------------------------
-     CHAPTER BUILDERS
-  -------------------------- */
-
-  function chapterOne(data) {
-    return `
-=== PROMPT: CHAPTER ONE – INTRODUCTION ===
-
-I am working on a ${data.level}-level ${data.type} in ${data.discipline} titled:
-
-"${data.topic}"
-
-Write Chapter One.
-
-${globalRules(data)}
-
-STRUCTURE AND REQUIREMENTS:
-
-Heading: Introduction  
-Introduce the topic using a funnel structure, beginning with the global context and narrowing to the specific research problem.
-Use empirical data and recent statistics.
-Do not discuss methodology.
-Word count: 800–1000 words.
-
-Heading: Rationale  
-Provide a clear justification for why this research is necessary.
-Word count: 200 words.
-
-Heading: Research Aim and Objectives  
-- Craft one concise research aim (30–50 words).
-- Develop four focused research objectives.
-- Convert the objectives into four quantitative research questions.
-
-Heading: Significance of the Study  
-Explain who benefits from the study and how.
-Word count: 200 words.
-
-Heading: Research Deliverable  
-Explain what the research will ultimately produce.
-Word count: 100–200 words.
-
-Heading: Dissertation Structure  
-Briefly describe the five chapters of the dissertation.
-
-Total word count: 1800–2000 words.
-
-Write section by section and pause after each section until instructed to continue.
-`;
+  function chapter(title, body) {
+    return `=== PROMPT: ${title} ===\n\n${body}`;
   }
 
-  function chapterTwo(data) {
-    return `
-=== PROMPT: CHAPTER TWO – LITERATURE REVIEW ===
+  function chapterOne(d) {
+    return chapter("CHAPTER ONE – INTRODUCTION", `
+I am working on a ${d.level}-level ${d.type} titled "${d.topic}".
 
-Write Chapter Two (Literature Review) for the study titled:
+${globalRules()}
 
-"${data.topic}"
-
-${globalRules(data)}
-
-REQUIREMENTS:
-- Structure the review around the study variables.
-- Include relevant theories and conceptual frameworks.
-- Compare, contrast, and critically evaluate sources.
-- Identify clear gaps in the literature.
-- Do not repeat sources.
-- Use at least ${variant([30, 35, 40])} unique, recent academic sources.
-
-End with a clear literature gap that justifies the research.
-
-Write section by section and pause until instructed.
-`;
+Write Chapter One using a funnel structure.
+Include background, rationale, aims, objectives, questions, significance, and structure.
+Word count: 1800–2000 words.
+Write section by section and pause after each section.
+`);
   }
 
-  function chapterThree(data) {
-    return `
-=== PROMPT: CHAPTER THREE – METHODOLOGY ===
+  function chapterTwo(d) {
+    return chapter("CHAPTER TWO – LITERATURE REVIEW", `
+Write a critical literature review for "${d.topic}".
 
-Write Chapter Three (Research Methodology) for the study titled:
+${globalRules()}
 
-"${data.topic}"
-
-${globalRules(data)}
-
-REQUIREMENTS:
-- Justify the research philosophy, approach, and design.
-- Explain and defend the chosen methodology (${data.methodology}).
-- Discuss sampling, data collection, and data analysis.
-- Explicitly link decisions to the research objectives.
-- Address ethical considerations in detail.
-
-Maintain critical justification throughout.
-
-Write section by section and pause until instructed.
-`;
+Structure by variables and theory.
+Compare and synthesise at least ${pick([30,35,40])} recent academic sources.
+Identify clear gaps.
+Write section by section.
+`);
   }
 
-  function chapterFour(data) {
-    return `
-=== PROMPT: CHAPTER FOUR – DATA ANALYSIS ===
+  function chapterThree(d) {
+    return chapter("CHAPTER THREE – METHODOLOGY", `
+Write the methodology chapter for "${d.topic}".
 
-Write Chapter Four (Data Analysis) for the study titled:
+${globalRules()}
 
-"${data.topic}"
-
-${globalRules(data)}
-
-REQUIREMENTS:
-- Present and analyse the data systematically.
-- Use appropriate statistical or thematic techniques.
-- Integrate tables and figures conceptually (describe them).
-- Focus on interpretation, not description.
-
-Write section by section and pause until instructed.
-`;
+Justify philosophy, approach, design, sampling, data collection, analysis, and ethics.
+Link all decisions to objectives.
+Write section by section.
+`);
   }
 
-  function chapterFive(data) {
-    return `
-=== PROMPT: CHAPTER FIVE – DISCUSSION, CONCLUSION, AND RECOMMENDATIONS ===
+  function chapterFour(d) {
+    return chapter("CHAPTER FOUR – ANALYSIS", `
+Write the analysis chapter for "${d.topic}".
 
-Write Chapter Five for the study titled:
+${globalRules()}
 
-"${data.topic}"
-
-${globalRules(data)}
-
-REQUIREMENTS:
-- Synthesize findings with the literature.
-- Answer the research questions explicitly.
-- Discuss theoretical and practical implications.
-- Acknowledge limitations.
-- Provide evidence-based recommendations.
-
-Write section by section and pause until instructed.
-`;
+Present and interpret findings.
+Focus on analysis, not description.
+Write section by section.
+`);
   }
 
-  /* -------------------------
-     PROMPT ORCHESTRATION
-  -------------------------- */
+  function chapterFive(d) {
+    return chapter("CHAPTER FIVE – CONCLUSION", `
+Write the conclusion chapter for "${d.topic}".
 
-  function buildPrompts(data) {
-    const builders = {
-      "Introduction": [chapterOne],
-      "Literature Review": [chapterTwo],
-      "Methodology": [chapterThree],
-      "Analysis": [chapterFour],
-      "Conclusion": [chapterFive],
-      "Full work": shuffle([
-        chapterOne,
-        chapterTwo,
-        chapterThree,
-        chapterFour,
-        chapterFive
-      ])
-    };
+${globalRules()}
 
-    const selected = builders[data.section] || builders["Full work"];
-    return selected.map(fn => fn(data)).join("\n\n");
+Synthesize findings, answer questions, discuss implications, limitations, and recommendations.
+Write section by section.
+`);
   }
-
-  /* -------------------------
-     FORM HANDLER
-  -------------------------- */
 
   form.addEventListener("submit", e => {
     e.preventDefault();
 
     const data = {
-      level: academicLevel.value,
-      type: workType.value,
-      section: section.value,
-      discipline: discipline.value,
-      methodology: methodology.value,
-      topic: topic.value,
-      words: wordCount.value,
-      output: outputStyle.value
+      level: document.getElementById("academicLevel").value,
+      type: document.getElementById("workType").value,
+      section: document.getElementById("section").value,
+      discipline: document.getElementById("discipline").value,
+      methodology: document.getElementById("methodology").value,
+      topic: document.getElementById("topic").value,
+      words: document.getElementById("wordCount").value,
+      output: document.getElementById("outputStyle").value
     };
 
-    const result = buildPrompts(data);
-    outputField.value = result.trim();
+    let prompts = [];
+
+    if (data.section === "Full work") {
+      prompts = [chapterOne, chapterTwo, chapterThree, chapterFour, chapterFive]
+        .sort(() => Math.random() - 0.5)
+        .map(fn => fn(data));
+    } else {
+      const map = {
+        "Introduction": chapterOne,
+        "Literature Review": chapterTwo,
+        "Methodology": chapterThree,
+        "Analysis": chapterFour,
+        "Conclusion": chapterFive
+      };
+      prompts = [map[data.section](data)];
+    }
+
+    outputField.value = prompts.join("\n\n");
     outputWrapper.classList.remove("hidden");
   });
-
-  /* -------------------------
-     COPY + DOWNLOAD
-  -------------------------- */
 
   copyBtn.addEventListener("click", () => {
     outputField.select();
     document.execCommand("copy");
-    copyBtn.textContent = "Copied ✓";
-    setTimeout(() => (copyBtn.textContent = "Copy"), 1500);
   });
 
   downloadBtn.addEventListener("click", () => {
     const blob = new Blob([outputField.value], { type: "text/plain" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "first-draft-prompts.txt";
-    link.click();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "first-draft-prompts.txt";
+    a.click();
   });
+
 });
