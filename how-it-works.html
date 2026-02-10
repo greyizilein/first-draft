@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How It Works — First Draft</title>
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --sage: #ACC8A2;
+      --olive: #1A2517;
+      --black: #0E0E0E;
+      --white: #FFFFFF;
+      --muted: #6F756C;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    header nav a {
+      margin-left: 24px;
+      font-size: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 96px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      max-width: 800px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 16px;
+      max-width: 760px;
+      color: var(--olive);
+    }
+
+    .cta {
+      margin-top: 40px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+
+    /* STACKED EDITORIAL BLOCKS */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      margin-top: 56px;
+    }
+
+    .stack-item {
+      border-left: 2px solid var(--olive);
+      padding-left: 24px;
+    }
+
+    .stack-item p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--olive);
+    }
+
+    /* DARK SECTIONS */
+    .dark {
+      background: var(--olive);
+      color: var(--white);
+      max-width: none;
+    }
+
+    .dark p {
+      color: #D9DFD4;
+    }
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 96px 32px 64px;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 48px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      font-size: 14px;
+      color: #C7CCC3;
+      margin-bottom: 8px;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 64px auto 0;
+      font-size: 12px;
+      color: #8E948B;
+      text-align: center;
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stack-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .stack-item.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="reveal">
+  <div class="logo">First Draft</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Use cases</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="reveal">
+  <h1>How First Draft works</h1>
+  <p>
+    First Draft does not generate academic work.  
+    It generates engineered prompts — structured instruction systems that control how AI produces output, so you can write faster, with clarity, and without compromising authorship or academic integrity.
+  </p>
+</section>
+
+<section class="reveal">
+  <h2>What a prompt actually is</h2>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Prompts are instructions, not answers</h3>
+      <p>
+        A prompt tells an AI how to think, what standards to apply, what structure to follow,
+        and where to stop. Poor prompts produce vague, generic output. Engineered prompts
+        produce controlled, repeatable results.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Most people use prompts incorrectly</h3>
+      <p>
+        Typical prompts are short, ambiguous, and under-specified. They rely on the AI to
+        guess expectations, leading to surface-level writing and extensive rewrites.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>What engineered prompts change</h2>
+  <p>
+    Engineered prompts encode academic logic directly into the instruction.
+    They define role, scope, depth, structure, citation rules, and stopping conditions
+    before any writing begins.
+  </p>
+</section>
+
+<section class="reveal">
+  <h2>How First Draft prompts work</h2>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>They are chapter-aware</h3>
+      <p>
+        Each prompt is built for a specific academic section — introduction, literature review,
+        methodology, analysis, or discussion — with expectations aligned to that section only.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>They control depth and boundaries</h3>
+      <p>
+        Prompts instruct the AI what to include, what to exclude, how far to go,
+        and when to stop — preventing overreach, repetition, and filler.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>They preserve authorship</h3>
+      <p>
+        The output is guidance, structure, and analytical framing — not a submission.
+        You remain the author. The system supports thinking, not replacement.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>Why this is easier, cheaper, and better</h2>
+  <p>
+    Paying for academic work outsources thinking, risks integrity breaches,
+    and scales poorly. Engineered prompts reduce effort while increasing control.
+  </p>
+</section>
+
+<section class="reveal">
+  <h2>The practical advantage</h2>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Faster execution</h3>
+      <p>
+        Clear instructions eliminate trial-and-error prompting and repeated rewrites.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Lower cost</h3>
+      <p>
+        One engineered prompt system replaces ongoing payments for outsourced writing.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Higher integrity</h3>
+      <p>
+        You produce the work. The system simply removes ambiguity and inefficiency.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>When First Draft makes sense</h2>
+  <p>
+    If you want control, speed, clarity, and academic credibility — without outsourcing
+    authorship — engineered prompts are the correct tool.
+  </p>
+
+  <div class="cta">
+    <a href="#contact">Discuss your use case</a>
+  </div>
+</section>
+
+<footer id="contact" class="reveal">
+  <div class="footer-grid">
+    <div>
+      <h4>First Draft</h4>
+      <a href="index.html">Home</a>
+      <a href="#">Use cases</a>
+      <a href="#">Academic integrity</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:">Email</a>
+      <a href="tel:">Call</a>
+    </div>
+
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 First Draft. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal, .stack-item')
+    .forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
