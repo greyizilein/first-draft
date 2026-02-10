@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Request a Prompt System — First Draft</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root{
+  --sage:#ACC8A2;
+  --olive:#1A2517;
+  --black:#0E0E0E;
+  --white:#FFFFFF;
+  --muted:#6F756C;
+  --paper:#F8F9F7;
+  --line:rgba(26,37,23,.18);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--sage);
+  color:var(--black);
+  line-height:1.6;
+}
+
+header{
+  padding:24px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{font-weight:600;font-size:18px}
+
+.menu-btn{font-size:20px;cursor:pointer}
+
+section{
+  padding:96px 32px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+h1{
+  font-size:44px;
+  font-weight:600;
+  letter-spacing:-.03em;
+  margin-bottom:24px;
+}
+
+h2{
+  font-size:26px;
+  font-weight:600;
+  margin:48px 0 16px;
+}
+
+p{
+  font-size:16px;
+  color:var(--olive);
+  max-width:720px;
+}
+
+/* FORM */
+.form-shell{
+  margin-top:48px;
+  background:var(--paper);
+  border-radius:20px;
+  padding:40px;
+  border:1px solid rgba(0,0,0,.06);
+}
+
+.field{
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:500;
+  margin-bottom:6px;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.75);
+  font-size:14px;
+  font-family:inherit;
+}
+
+textarea{min-height:120px;resize:vertical}
+
+input:focus, select:focus, textarea:focus{
+  outline:none;
+  border-color:rgba(26,37,23,.55);
+  box-shadow:0 0 0 3px rgba(26,37,23,.12);
+}
+
+.inline{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+@media(max-width:700px){
+  .inline{grid-template-columns:1fr}
+}
+
+.checkbox{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  background:rgba(172,200,162,.25);
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(26,37,23,.12);
+}
+
+.checkbox input{margin-top:3px}
+
+small{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+button{
+  margin-top:24px;
+  padding:14px 32px;
+  border-radius:999px;
+  background:var(--black);
+  color:var(--white);
+  font-size:14px;
+  font-weight:500;
+  border:none;
+  cursor:pointer;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header class="reveal">
+  <div class="logo">First Draft</div>
+  <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+</header>
+
+<section class="reveal">
+  <h1>Request a prompt system</h1>
+  <p>
+    This form collects the information required to engineer a prompt system
+    suited to your exact use case.  
+    No writing is generated. All systems preserve authorship and integrity.
+  </p>
+
+  <!-- FORM -->
+  <div class="form-shell">
+    <!-- Replace action with your Formspree endpoint -->
+    <form action="https://formspree.io/f/YOUR_ID" method="POST">
+
+      <h2>1. Project overview</h2>
+
+      <div class="field">
+        <label>Type of work</label>
+        <select name="type_of_work" required>
+          <option>Assignment</option>
+          <option>Report</option>
+          <option>Dissertation / Thesis</option>
+          <option>Research paper</option>
+          <option>Proposal</option>
+          <option>Technical documentation</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Primary topic / subject</label>
+        <input name="topic" required />
+      </div>
+
+      <div class="field">
+        <label>Purpose / goal</label>
+        <input name="purpose" placeholder="e.g. assessment submission, client report, research exploration" />
+      </div>
+
+      <h2>2. Structure & scope</h2>
+
+      <div class="inline">
+        <div class="field">
+          <label>Output structure</label>
+          <select name="structure">
+            <option>Single section</option>
+            <option>Multi-section document</option>
+            <option>Chapter-based</option>
+            <option>Step-by-step / gated</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Target length</label>
+          <input name="length" placeholder="e.g. 2,500 words / 10 pages / flexible" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Depth level</label>
+        <select name="depth">
+          <option>Overview / descriptive</option>
+          <option>Analytical</option>
+          <option>Critical / evaluative</option>
+          <option>Research-level synthesis</option>
+        </select>
+      </div>
+
+      <h2>3. Standards & constraints</h2>
+
+      <div class="inline">
+        <div class="field">
+          <label>Language / locale</label>
+          <select name="language">
+            <option>UK English</option>
+            <option>US English</option>
+            <option>International English</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Referencing style (if any)</label>
+          <select name="citation">
+            <option>None</option>
+            <option>APA</option>
+            <option>Harvard</option>
+            <option>Chicago</option>
+            <option>IEEE</option>
+            <option>Other / custom</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Things the output must NOT include</label>
+        <textarea name="exclusions"></textarea>
+      </div>
+
+      <h2>4. Workflow & control</h2>
+
+      <div class="checkbox">
+        <input type="checkbox" name="gated_output" />
+        <div>
+          <strong>Section-by-section (gated) output</strong>
+          <small>AI stops after each section for review.</small>
+        </div>
+      </div>
+
+      <div class="checkbox" style="margin-top:10px;">
+        <input type="checkbox" name="rubric_alignment" />
+        <div>
+          <strong>Rubric / evaluation alignment</strong>
+          <small>Marking criteria encoded into the prompt system.</small>
+        </div>
+      </div>
+
+      <h2>5. Contact details</h2>
+
+      <div class="inline">
+        <div class="field">
+          <label>Your name</label>
+          <input name="name" required />
+        </div>
+
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" name="email" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Additional notes</label>
+        <textarea name="notes"></textarea>
+      </div>
+
+      <button type="submit">Submit request</button>
+
+    </form>
+  </div>
+</section>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})
+},{threshold:.15})
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))
+</script>
+
+</body>
+</html>
