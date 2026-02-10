@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prompt Preview — First Draft</title>
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sage: #ACC8A2;
+      --olive: #1A2517;
+      --black: #0E0E0E;
+      --white: #FFFFFF;
+      --muted: #6F756C;
+      --veil: rgba(14,14,14,.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--sage);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    header nav a {
+      margin-left: 24px;
+      font-size: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    section {
+      padding: 96px 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 16px;
+      max-width: 760px;
+      color: var(--olive);
+    }
+
+    /* PREVIEW BLOCK */
+    .preview-shell {
+      margin-top: 56px;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,.6) 65%,
+        rgba(255,255,255,.95) 100%
+      );
+      pointer-events: none;
+    }
+
+    .preview-label {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .prompt-preview {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      color: #1A1A1A;
+    }
+
+    .redacted {
+      background: var(--veil);
+      border-radius: 4px;
+      padding: 0 6px;
+    }
+
+    /* STACKED EXPLANATION */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+      margin-top: 64px;
+    }
+
+    .stack-item {
+      border-left: 2px solid var(--olive);
+      padding-left: 24px;
+    }
+
+    .stack-item p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--olive);
+    }
+
+    /* DARK SECTIONS */
+    .dark {
+      background: var(--olive);
+      color: var(--white);
+      max-width: none;
+    }
+
+    .dark p {
+      color: #D9DFD4;
+    }
+
+    .cta {
+      margin-top: 40px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: var(--black);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .cta a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 96px 32px 64px;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 64px auto 0;
+      font-size: 12px;
+      color: #8E948B;
+      text-align: center;
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="reveal">
+  <div class="logo">First Draft</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="reveal">
+  <h1>Prompt preview</h1>
+  <p>
+    This is a shortened, read-only example of an engineered First Draft prompt.
+    It demonstrates structure, depth, and instruction style — not the full system.
+  </p>
+
+  <div class="preview-shell">
+    <div class="preview-label">Sample prompt (excerpt)</div>
+
+    <div class="prompt-preview">
+You are an academic supervisor with examiner-level expectations.
+
+TASK:
+Generate analytical academic writing for the following section only:
+<span class="redacted">[Section name redacted]</span>
+
+ACADEMIC CONTEXT:
+– Level: <span class="redacted">[Defined by project]</span>
+– Discipline: <span class="redacted">[Defined by project]</span>
+– Methodological alignment: <span class="redacted">[Specified]</span>
+
+INSTRUCTION LOGIC:
+You must move from descriptive framing to critical evaluation.
+All claims must be supported by scholarly sources.
+Avoid generic discussion.
+Demonstrate synthesis, not summary.
+
+STRUCTURAL CONTROL:
+Write section by section.
+Pause at logical breakpoints.
+Do not proceed unless instructed.
+
+IMPORTANT:
+This prompt instructs writing.
+It does not generate a submission.
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <h2>How to use a First Draft prompt</h2>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Step 1: Provide context</h3>
+      <p>
+        The prompt is customised with your level, discipline, section, and scope.
+        This removes ambiguity before any writing begins.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Step 2: Run it in your AI tool</h3>
+      <p>
+        The prompt is pasted into your preferred AI platform.
+        No additional prompting is required.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Step 3: Write with control</h3>
+      <p>
+        The AI follows the instruction framework, producing structured,
+        bounded output that you refine and develop.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>Why the full prompt is not shown</h2>
+  <p>
+    First Draft prompts are engineered systems, not templates.
+    Each one is built specifically for a project, level, and use case,
+    similar in complexity and intent to the reference prompt you supplied 1.
+  </p>
+</section>
+
+<section class="reveal">
+  <h2>What you are actually paying for</h2>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Instruction architecture</h3>
+      <p>
+        The logic that determines structure, scope, depth, and stopping conditions.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Reusability</h3>
+      <p>
+        One engineered system can be reused, adapted, and refined across work.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Integrity and control</h3>
+      <p>
+        You retain authorship while removing inefficiency and guesswork.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>Request a custom prompt system</h2>
+  <p>
+    If you want prompts engineered for your exact academic context,
+    get in touch to discuss scope and requirements.
+  </p>
+
+  <div class="cta">
+    <a href="#contact">Discuss your project</a>
+  </div>
+</section>
+
+<footer id="contact" class="reveal">
+  <div class="footer-bottom">
+    © 2026 First Draft. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal')
+    .forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
