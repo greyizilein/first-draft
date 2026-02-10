@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Use Cases — First Draft</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --sage:#ACC8A2;
+  --olive:#1A2517;
+  --black:#0E0E0E;
+  --white:#FFFFFF;
+  --muted:#6F756C;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--sage);
+  color:var(--black);
+  line-height:1.6;
+}
+
+header{
+  padding:24px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header .logo{
+  font-weight:600;
+  font-size:18px;
+}
+
+header nav a{
+  margin-left:24px;
+  font-size:14px;
+  text-decoration:none;
+  color:inherit;
+}
+
+section{
+  padding:96px 32px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+h1{
+  font-size:48px;
+  font-weight:600;
+  letter-spacing:-.03em;
+  max-width:760px;
+  margin-bottom:24px;
+}
+
+h2{
+  font-size:32px;
+  font-weight:600;
+  letter-spacing:-.02em;
+  margin-bottom:40px;
+}
+
+h3{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+p{
+  font-size:16px;
+  max-width:760px;
+  color:var(--olive);
+}
+
+/* STACK */
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap:56px;
+  margin-top:64px;
+}
+
+.stack-item{
+  border-left:2px solid var(--olive);
+  padding-left:24px;
+}
+
+.stack-item p{
+  margin:0;
+  font-size:15px;
+}
+
+/* DARK */
+.dark{
+  background:var(--olive);
+  color:var(--white);
+  max-width:none;
+}
+
+.dark p{color:#D9DFD4}
+
+/* COMPARISON */
+.compare-wrap{
+  margin-top:56px;
+  background:var(--white);
+  border-radius:20px;
+  padding:40px;
+}
+
+.compare-toggle{
+  display:flex;
+  gap:8px;
+  margin-bottom:24px;
+}
+
+.compare-toggle button{
+  border:none;
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  background:#E6E6E6;
+}
+
+.compare-toggle button.active{
+  background:var(--black);
+  color:var(--white);
+}
+
+.compare-panel{
+  font-family:ui-monospace,Menlo,monospace;
+  font-size:14px;
+  line-height:1.55;
+  white-space:pre-wrap;
+  display:none;
+}
+
+.compare-panel.active{display:block}
+
+/* CTA */
+.cta{
+  margin-top:40px;
+}
+
+.cta a{
+  display:inline-block;
+  padding:14px 30px;
+  border-radius:999px;
+  background:var(--black);
+  color:var(--white);
+  font-size:14px;
+  font-weight:500;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  background:var(--black);
+  color:var(--white);
+  padding:96px 32px 64px;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:64px auto 0;
+  font-size:12px;
+  color:#8E948B;
+  text-align:center;
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header class="reveal">
+  <div class="logo">First Draft</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="reveal">
+  <h1>Use cases</h1>
+  <p>
+    First Draft is used anywhere academic structure, depth, and integrity matter.
+    Below are common contexts and how engineered prompts change outcomes.
+  </p>
+</section>
+
+<section class="reveal">
+  <h2>Where engineered prompts make the biggest difference</h2>
+
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Assignments and coursework</h3>
+      <p>
+        Clear structure, correct scope, and reduced rewriting — without outsourcing authorship.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Master’s dissertations</h3>
+      <p>
+        Chapter-aware prompts prevent misaligned literature reviews,
+        weak methodology sections, and incoherent discussions.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Doctoral research</h3>
+      <p>
+        Prompts enforce depth, synthesis, and boundaries across long-form work.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Institutions and educators</h3>
+      <p>
+        Consistent, scalable academic guidance without writing on behalf of students.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>Prompt comparison</h2>
+  <p>
+    The difference between generic prompting and engineered prompting is structural,
+    not stylistic.
+  </p>
+</section>
+
+<section class="reveal">
+  <h2>Generic vs engineered prompts</h2>
+
+  <div class="compare-wrap">
+    <div class="compare-toggle">
+      <button class="active" onclick="showPanel('generic')">Generic prompt</button>
+      <button onclick="showPanel('engineered')">Engineered prompt</button>
+    </div>
+
+    <div id="generic" class="compare-panel active">
+Write a literature review on the impact of social media on students.
+
+Make it detailed and well-structured.
+
+Use academic sources.
+    </div>
+
+    <div id="engineered" class="compare-panel">
+You are an academic supervisor.
+
+TASK:
+Generate a literature review section only.
+
+CONSTRAINTS:
+– Define key theoretical frameworks
+– Compare conflicting findings
+– Identify methodological gaps
+– Maintain critical evaluation throughout
+
+STRUCTURE:
+Proceed section by section.
+Do not summarise sources sequentially.
+Stop after synthesis.
+    </div>
+  </div>
+</section>
+
+<section class="dark reveal">
+  <h2>Why engineered prompts outperform paid writing</h2>
+  <p>
+    Paying for work removes control, introduces risk, and does not scale.
+    Engineered prompts preserve authorship while eliminating inefficiency.
+  </p>
+</section>
+
+<section class="reveal">
+  <div class="stack">
+    <div class="stack-item">
+      <h3>Lower long-term cost</h3>
+      <p>
+        One engineered prompt system replaces repeated payments for outsourced writing.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Higher academic integrity</h3>
+      <p>
+        You write the work. The system enforces structure and standards.
+      </p>
+    </div>
+
+    <div class="stack-item">
+      <h3>Reusable infrastructure</h3>
+      <p>
+        Prompts can be reused, refined, and adapted across projects.
+      </p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a href="#contact">Discuss your use case</a>
+  </div>
+</section>
+
+<footer id="contact" class="reveal">
+  <div class="footer-bottom">
+    © 2026 First Draft. All rights reserved.
+  </div>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('active')}
+  })
+},{threshold:.15})
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))
+
+function showPanel(id){
+  document.querySelectorAll('.compare-panel').forEach(p=>p.classList.remove('active'))
+  document.querySelectorAll('.compare-toggle button').forEach(b=>b.classList.remove('active'))
+  document.getElementById(id).classList.add('active')
+  event.target.classList.add('active')
+}
+</script>
+
+</body>
+</html>
