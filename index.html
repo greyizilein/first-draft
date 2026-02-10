@@ -5,193 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>First Draft — Academic Prompt Systems</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     :root {
       --soft-sage: #ACC8A2;
       --deep-olive: #1A2517;
       --ink-black: #0E0E0E;
-      --off-white: #FAFAF7;
-      --muted-text: #6F756B;
+      --off-white: #F8F9F7;
+      --muted: #6F756C;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
       background: var(--soft-sage);
       color: var(--ink-black);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    /* NAV */
     header {
-      width: 100%;
-      padding: 20px 32px;
-      background: var(--soft-sage);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 24px 32px;
+      background: var(--soft-sage);
     }
 
-    header h1 {
-      font-size: 18px;
+    header .logo {
       font-weight: 600;
+      font-size: 18px;
       letter-spacing: -0.02em;
     }
 
-    /* HERO */
-    .hero {
-      padding: 120px 32px 140px;
+    header nav {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 96px 32px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .hero h2 {
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: -0.04em;
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
       max-width: 720px;
       margin-bottom: 24px;
     }
 
     .hero p {
       font-size: 18px;
-      color: var(--ink-black);
-      max-width: 620px;
+      max-width: 640px;
+      color: var(--deep-olive);
     }
 
-    /* SECTION BASE */
-    .section {
-      padding: 96px 32px;
-      max-width: 1100px;
-      margin: 0 auto;
+    .cta {
+      margin-top: 40px;
     }
 
-    .section h3 {
-      font-size: 36px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-bottom: 40px;
-    }
-
-    /* SCRIBE STYLE LIST */
-    .scribe-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .scribe-card {
-      max-width: 720px;
-      padding: 24px 28px;
-      border-radius: 16px;
-      background: var(--deep-olive);
-    }
-
-    .scribe-card.light {
+    .cta a {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 999px;
       background: var(--ink-black);
-    }
-
-    .scribe-card h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
       color: var(--off-white);
-    }
-
-    .scribe-card p {
       font-size: 14px;
-      color: #C7CCC3;
+      font-weight: 500;
     }
 
-    /* DARK BLOCK */
-    .dark-block {
+    .block-title {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .block-text {
+      font-size: 16px;
+      max-width: 720px;
+      color: var(--deep-olive);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .card {
+      background: var(--off-white);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .full-width {
       background: var(--deep-olive);
       color: var(--off-white);
-      padding: 120px 32px;
-      margin-top: 120px;
+      max-width: none;
+      padding: 96px 32px;
     }
 
-    .dark-inner {
-      max-width: 1100px;
-      margin: 0 auto;
+    .full-width .block-text {
+      color: #D9DFD4;
     }
 
-    .dark-inner h3 {
-      font-size: 42px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
+    .center {
+      text-align: center;
     }
 
-    .dark-inner p {
-      max-width: 620px;
-      font-size: 16px;
-      color: #C7CCC3;
-    }
-
-    /* CONTACT */
-    .contact {
-      padding: 120px 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .contact h3 {
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .contact-links a {
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--ink-black);
-    }
-
-    /* FOOTER */
     footer {
       background: var(--ink-black);
-      color: #9DA39A;
-      padding: 64px 32px;
-      margin-top: 120px;
+      color: var(--off-white);
+      padding: 96px 32px 64px;
     }
 
-    footer div {
+    footer .footer-grid {
       max-width: 1100px;
       margin: 0 auto;
-      font-size: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 48px;
     }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 40px;
-      }
+    footer h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
 
-      .section h3,
-      .contact h3 {
-        font-size: 30px;
-      }
+    footer a {
+      display: block;
+      font-size: 14px;
+      color: #C7CCC3;
+      margin-bottom: 8px;
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .contact-icons a {
+      font-size: 20px;
+      color: var(--off-white);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 64px auto 0;
+      font-size: 12px;
+      color: #8E948B;
+      text-align: center;
     }
   </style>
 </head>
@@ -199,77 +196,115 @@
 <body>
 
 <header>
-  <h1>First Draft</h1>
+  <div class="logo">✎ First Draft</div>
+  <nav>
+    <a href="#">How it works</a>
+    <a href="#">Use cases</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <h2>Academic prompt systems built for real research work.</h2>
+  <h1>Academic prompt systems for serious work.</h1>
   <p>
-    First Draft creates executable, examiner-aligned prompts that guide academic writing without replacing authorship.
+    First Draft designs executable AI prompts that control structure, depth,
+    and academic standards — without writing the work for you.
   </p>
-</section>
-
-<section class="section">
-  <h3>Who this is for</h3>
-  <div class="scribe-list">
-    <div class="scribe-card">
-      <h4>Postgraduate students</h4>
-      <p>Clear academic structure without outsourcing authorship.</p>
-    </div>
-    <div class="scribe-card">
-      <h4>Doctoral researchers</h4>
-      <p>Controlled scope and depth across complex, multi-chapter projects.</p>
-    </div>
-    <div class="scribe-card">
-      <h4>Educators and supervisors</h4>
-      <p>Consistent, examiner-aligned academic guidance systems.</p>
-    </div>
+  <div class="cta">
+    <a href="#contact">Contact for custom setup</a>
   </div>
 </section>
 
-<section class="section">
-  <h3>What First Draft provides</h3>
-  <div class="scribe-list">
-    <div class="scribe-card light">
-      <h4>Executable prompts</h4>
+<section>
+  <h2 class="block-title">What First Draft provides</h2>
+  <p class="block-text">
+    Instruction systems for academic writing across disciplines, levels,
+    and institutions — designed to preserve authorship while removing ambiguity.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Executable prompts</h3>
       <p>Every output is ready to run in any AI environment.</p>
     </div>
-    <div class="scribe-card light">
-      <h4>Chapter-aware logic</h4>
+    <div class="card">
+      <h3>Chapter-aware logic</h3>
       <p>Prompts mirror real academic structures and expectations.</p>
     </div>
-    <div class="scribe-card light">
-      <h4>Discipline-agnostic systems</h4>
+    <div class="card">
+      <h3>Discipline-agnostic</h3>
       <p>Applicable across humanities, sciences, business, and research.</p>
     </div>
   </div>
 </section>
 
-<section class="dark-block">
-  <div class="dark-inner">
-    <h3>Built for academic integrity</h3>
-    <p>
-      First Draft generates instructions, not submissions. Your work remains your own — supported by precision, not automation.
-    </p>
-  </div>
-</section>
-
-<section class="contact">
-  <h3>Contact</h3>
-  <p>
-    To commission a custom prompt system or discuss institutional use, get in touch.
+<section class="full-width center">
+  <h2 class="block-title">Built for academic integrity</h2>
+  <p class="block-text" style="margin: 0 auto;">
+    First Draft does not generate submissions. It generates systems that guide
+    responsible academic writing with clarity and intent.
   </p>
+</section>
 
-  <div class="contact-links">
-    <a href="#">Email</a>
-    <a href="#">WhatsApp</a>
-    <a href="#">Call</a>
+<section>
+  <h2 class="block-title">Who this is for</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Postgraduate students</h3>
+      <p>Clear structure without outsourcing authorship.</p>
+    </div>
+    <div class="card">
+      <h3>Doctoral researchers</h3>
+      <p>Controlled scope and depth across complex projects.</p>
+    </div>
+    <div class="card">
+      <h3>Educators & supervisors</h3>
+      <p>Consistent, high-quality academic guidance.</p>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div>
-    © First Draft. All rights reserved.
+<section class="full-width center">
+  <h2 class="block-title">Custom systems available</h2>
+  <p class="block-text" style="margin: 0 auto;">
+    Bespoke prompt frameworks can be built for institutions, marking rubrics,
+    or research programmes.
+  </p>
+  <div class="cta">
+    <a href="#contact">Request a custom build</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <h4>First Draft</h4>
+      <a href="#">How it works</a>
+      <a href="#">Use cases</a>
+      <a href="#">Academic integrity</a>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:">Email</a>
+      <a href="tel:">Call</a>
+      <div class="contact-icons">
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+        <a href="#"><i class="fa-solid fa-phone"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4>Legal</h4>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 First Draft. All rights reserved.
   </div>
 </footer>
 
