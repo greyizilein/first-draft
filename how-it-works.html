@@ -328,40 +328,47 @@
   <div class="footer-grid">
     <div>
       <h4>First Draft</h4>
-      <a href="index.html">Home</a>
-      <a href="#">Use cases</a>
-      <a href="#">Academic integrity</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="use-cases.html">Use cases</a>
+      <a href="pricing.html">Pricing</a>
     </div>
-
     <div>
       <h4>Contact</h4>
-      <a href="mailto:">Email</a>
-      <a href="tel:">Call</a>
-    </div>
+      <a href="mailto:grey.izilein@gmail.com?subject=First%20Draft%20Inquiry">Email</a>
+<a href="tel:+2347072181160">Call</a>
 
-    <div>
-      <h4>Legal</h4>
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
+<div class="contact-icons">
+  <a href="https://wa.me/2347072181160?text=Hello%20First%20Draft,%20I%20would%20like%20to%20request%20a%20prompt%20system."
+     target="_blank"
+     aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="mailto:grey.izilein@gmail.com?subject=First%20Draft%20Inquiry"
+     aria-label="Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+  <a href="tel:+2347072181160"
+     aria-label="Call">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+      </div>
     </div>
   </div>
-
-  <div class="footer-bottom">
-    © 2026 First Draft. All rights reserved.
-  </div>
+  <div class="footer-bottom">© 2026 First Draft | Grey. All rights reserved.</div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.15 });
+function openMenu(){document.getElementById('menu').classList.add('active')}
+function closeMenu(){document.getElementById('menu').classList.remove('active')}
 
-  document.querySelectorAll('.reveal, .stack-item')
-    .forEach(el => observer.observe(el));
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})
+},{threshold:.15})
+
+document.querySelectorAll('.reveal,.stack-item').forEach(el=>observer.observe(el))
 </script>
 
 </body>
