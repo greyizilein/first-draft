@@ -233,23 +233,21 @@ button:hover{
 </div>
 
 <section class="reveal">
-  <h1>Request a prompt system</h1>
+  <h1>Request a system</h1>
   <p>
-    This form collects the information required to engineer a prompt system
-    for your specific use case.  
-    We do not write submissions. All systems preserve authorship and integrity.
+    This form collects the information required to engineer your prompt system.
   </p>
 
   <div class="form-shell">
     <!-- Replace YOUR_ID with your Formspree endpoint -->
-    <form action="https://formspree.io/f/YOUR_ID" method="POST">
+    <form action="https://formspree.io/f/f/mreaeyyp" method="POST">
 
       <h2>1. Project overview</h2>
 
       <div class="field">
         <label>Type of work</label>
         <select name="type_of_work" required>
-          <option>Assignment</option>
+          <option>Essay</option>
           <option>Report</option>
           <option>Dissertation / Thesis</option>
           <option>Research paper</option>
@@ -279,6 +277,7 @@ button:hover{
             <option>Multi-section document</option>
             <option>Chapter-based</option>
             <option>Step-by-step / gated</option>
+            <option>Full system prompt</option>
           </select>
         </div>
 
@@ -325,7 +324,7 @@ button:hover{
       </div>
 
       <div class="field">
-        <label>Things the output must NOT include</label>
+        <label>Additional Expectations</label>
         <textarea name="exclusions"></textarea>
       </div>
 
@@ -362,7 +361,7 @@ button:hover{
       </div>
 
       <div class="field">
-        <label>Additional notes</label>
+        <label>Notes</label>
         <textarea name="notes"></textarea>
       </div>
 
